@@ -1,5 +1,5 @@
-function mostrarSorpresa() {
-    document.getElementById("sorpresa").classList.remove("oculto");
+function mostrarMensaje() {
+    document.getElementById("mensajeCariñoso").classList.remove("oculto");
 }
 
 function moverBoton() {
