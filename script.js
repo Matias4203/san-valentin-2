@@ -1,11 +1,5 @@
 function mostrarMensaje() {
-    document.getElementById("mensajeCariñoso").classList.remove("oculto");
-}
-
-function moverBoton() {
-    let btnNo = document.getElementById("btnNo");
-    let x = Math.random() * (window.innerWidth - btnNo.clientWidth);
-    let y = Math.random() * (window.innerHeight - btnNo.clientHeight);
-    btnNo.style.left = `${x}px`;
-    btnNo.style.top = `${y}px`;
+    let mensaje = "💖 ¡Sabía que dirías que sí! Eres una persona increíble, y espero que hoy sea un día hermoso para ti. 🌹✨";
+    let nuevaVentana = window.open("", "_blank", "width=400,height=300");
+    nuevaVentana.document.write(`<h2 style="text-align:center;">${mensaje}</h2>`);
 }
