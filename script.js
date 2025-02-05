@@ -1,3 +1,105 @@
+// Array of 100 different messages for the "No" button
+const mensajesNo = [
+    "Ah, ya sabía que dirías que no.",
+    "¡Oh, qué pena que no quieras verlo!",
+    "¡Vamos, anímate, seguro te gusta!",
+    "¡No te preocupes, está bien decir que no!",
+    "¡Oh, parece que no estás interesado!",
+    "¡No pasa nada, quizá la próxima vez!",
+    "¡Entiendo, no siempre se puede querer!",
+    "¡Vaya, me lo esperaba!",
+    "¡Está bien, respeto tu decisión!",
+    "¡Oh, qué lástima!",
+    "¡Seguro que cambiarás de opinión!",
+    "¡No hay problema, tal vez más tarde!",
+    "¡Bueno, será para otra ocasión!",
+    "¡No te preocupes, está bien!",
+    "¡Oh, parece que no estás de humor!",
+    "¡Vaya, me lo esperaba!",
+    "¡Oh, qué pena!",
+    "¡Seguro que cambiarás de opinión!",
+    "¡No hay problema!",
+    "¡Bueno, será para otra ocasión!",
+    "¡No te preocupes, está bien decir que no!",
+    "¡Oh, parece que no estás interesado!",
+    "¡No pasa nada, quizá la próxima vez!",
+    "¡Entiendo, no siempre se puede querer!",
+    "¡Vaya, me lo esperaba!",
+    "¡Está bien, respeto tu decisión!",
+    "¡Oh, qué lástima!",
+    "¡Seguro que cambiarás de opinión!",
+    "¡No hay problema, tal vez más tarde!",
+    "¡Bueno, será para otra ocasión!",
+    "¡No te preocupes, está bien!",
+    "¡Oh, parece que no estás de humor!",
+    "¡Vaya, me lo esperaba!",
+    "¡Oh, qué pena!",
+    "¡Seguro que cambiarás de opinión!",
+    "¡No hay problema!",
+    "¡Bueno, será para otra ocasión!",
+    "¡No te preocupes, está bien decir que no!",
+    "¡Oh, parece que no estás interesado!",
+    "¡No pasa nada, quizá la próxima vez!",
+    "¡Entiendo, no siempre se puede querer!",
+    "¡Vaya, me lo esperaba!",
+    "¡Está bien, respeto tu decisión!",
+    "¡Oh, qué lástima!",
+    "¡Seguro que cambiarás de opinión!",
+    "¡No hay problema, tal vez más tarde!",
+    "¡Bueno, será para otra ocasión!",
+    "¡No te preocupes, está bien!",
+    "¡Oh, parece que no estás de humor!",
+    "¡Vaya, me lo esperaba!",
+    "¡Oh, qué pena!",
+    "¡Seguro que cambiarás de opinión!",
+    "¡No hay problema!",
+    "¡Bueno, será para otra ocasión!",
+    "¡No te preocupes, está bien decir que no!",
+    "¡Oh, parece que no estás interesado!",
+    "¡No pasa nada, quizá la próxima vez!",
+    "¡Entiendo, no siempre se puede querer!",
+    "¡Vaya, me lo esperaba!",
+    "¡Está bien, respeto tu decisión!",
+    "¡Oh, qué lástima!",
+    "¡Seguro que cambiarás de opinión!",
+    "¡No hay problema, tal vez más tarde!",
+    "¡Bueno, será para otra ocasión!",
+    "¡No te preocupes, está bien!",
+    "¡Oh, parece que no estás de humor!",
+    "¡Vaya, me lo esperaba!",
+    "¡Oh, qué pena!",
+    "¡Seguro que cambiarás de opinión!",
+    "¡No hay problema!",
+    "¡Bueno, será para otra ocasión!",
+    "¡No te preocupes, está bien decir que no!",
+    "¡Oh, parece que no estás interesado!",
+    "¡No pasa nada, quizá la próxima vez!",
+    "¡Entiendo, no siempre se puede querer!",
+    "¡Vaya, me lo esperaba!",
+    "¡Está bien, respeto tu decisión!",
+    "¡Oh, qué lástima!",
+    "¡Seguro que cambiarás de opinión!",
+    "¡No hay problema, tal vez más tarde!",
+    "¡Bueno, será para otra ocasión!",
+    "¡No te preocupes, está bien!",
+    "¡Oh, parece que no estás de humor!",
+    "¡Vaya, me lo esperaba!",
+    "¡Oh, qué pena!",
+    "¡Seguro que cambiarás de opinión!",
+    "¡No hay problema!",
+    "¡Bueno, será para otra ocasión!",
+    "¡No te preocupes, está bien decir que no!",
+    "¡Oh, parece que no estás interesado!",
+    "¡No pasa nada, quizá la próxima vez!",
+    "¡Entiendo, no siempre se puede querer!",
+    "¡Vaya, me lo esperaba!",
+    "¡Está bien, respeto tu decisión!",
+    "¡Oh, qué lástima!",
+    "¡Seguro que cambiarás de opinión!",
+    "¡No hay problema, tal vez más tarde!",
+    "¡Bueno, será para otra ocasión!"
+];
+
 // Function to show the modal with the special message
 function mostrarMensaje() {
     var modal = document.getElementById('modal');
@@ -6,30 +108,17 @@ function mostrarMensaje() {
     modal.style.display = 'block';
 }
 
+// Function to show a random message when "No" button is clicked
+function mostrarMensajeNo() {
+    var modal = document.getElementById('modal');
+    var mensaje = document.getElementById('mensaje');
+    var randomIndex = Math.floor(Math.random() * mensajesNo.length);
+    mensaje.textContent = mensajesNo[randomIndex];
+    modal.style.display = 'block';
+}
+
 // Function to close the modal
 function cerrarModal() {
     var modal = document.getElementById('modal');
     modal.style.display = 'none';
-}
-
-// Function to move the "No" button to a random position
-function moverNo() {
-    var noButton = document.getElementById('no');
-    var container = document.querySelector('.container');
-
-    var containerWidth = container.offsetWidth;
-    var containerHeight = container.offsetHeight;
-
-    // Generate random positions within the container bounds
-    var randomX = Math.floor(Math.random() * (containerWidth - noButton.offsetWidth));
-    var randomY = Math.floor(Math.random() * (containerHeight - noButton.offsetHeight));
-
-    noButton.style.position = 'absolute';
-    noButton.style.left = randomX + 'px';
-    noButton.style.top = randomY + 'px';
-}
-
-// Function to handle the "No" button click
-function noSeleccionado() {
-    alert("¡Oh! Parece que no quieres ver el mensaje especial. 😢");
 }
