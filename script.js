@@ -1,36 +1,60 @@
-// Array of 10 different messages for the "No" button
-const mensajesNo = [
-    "Ah, ya sabía que dirías que no.",
-    "¡Oh, qué pena que no quieras verlo!",
-    "¡Vamos, anímate, seguro te gusta!",
-    "¡No te preocupes, está bien decir que no!",
-    "¡Oh, parece que no estás interesado!",
-    "¡No pasa nada, quizá la próxima vez!",
-    "¡Entiendo, no siempre se puede querer!",
-    "¡Vaya, me lo esperaba!",
-    "¡Está bien, respeto tu decisión!",
-    "¡Oh, qué lástima!"
+// Obtener los modales
+var modal = document.getElementById("myModal");
+var extraModal = document.getElementById("extraModal");
+
+// Obtener los botones que abren los modales
+var btn = document.getElementById("showMessagesBtn");
+var extraBtn = document.getElementById("showExtraMessagesBtn");
+
+// Obtener el elemento <span> que cierra los modales
+var span = document.getElementsByClassName("close");
+
+// Array de mensajes bonitos
+var messages = [
+    "¡Tú eres la razón por la que sonrío todos los días!",
+    "Eres mi sol en los días nublados.",
+    "Siempre en mi mente, en mi corazón y en mis sueños.",
+    "A tu lado todo es mejor. ¡Feliz San Valentín!",
+    "La mejor parte de mi vida es tenerte a ti."
 ];
 
-// Function to show the modal with the special message for "Sí"
-function mostrarMensajeSi() {
-    var modal = document.getElementById('modal');
-    var mensaje = document.getElementById('mensaje');
-    mensaje.textContent = '💖 ¡Sabía que dirías que sí! Eres una persona increíble, y espero que hoy sea un día hermoso para ti. 🌹✨';
-    modal.style.display = 'block';
+// Array de mensajes graciosos
+var extraMessages = [
+    "Ah, yo sabía que no querías, pero seguro que no cambias de opinión.",
+    "¿Vas a decir que no? ¡Lo sabía! Pero no puedo resistir verte sonreír.",
+    "No soy experto en amor, pero tú y yo juntos, eso sí que tiene sentido.",
+    "¿Sabías que todos los caminos llevan a Roma? Bueno, los míos siempre me llevan a ti.",
+    "Te dije que no querías, pero seguro que lo sabes, ¿verdad?"
+];
+
+// Función para abrir el primer modal con mensaje bonito
+btn.onclick = function() {
+    var randomMessage = messages[Math.floor(Math.random() * messages.length)];
+    document.getElementById("modalMessages").innerText = randomMessage;
+    modal.style.display = "block"; // Muestra el primer modal
 }
 
-// Function to show a random message when "No" button is clicked
-function mostrarMensajeNo() {
-    var modal = document.getElementById('modal');
-    var mensaje = document.getElementById('mensaje');
-    var randomIndex = Math.floor(Math.random() * mensajesNo.length);
-    mensaje.textContent = mensajesNo[randomIndex];
-    modal.style.display = 'block';
+// Función para abrir el segundo modal con mensajes graciosos
+extraBtn.onclick = function() {
+    var randomMessage = extraMessages[Math.floor(Math.random() * extraMessages.length)];
+    document.getElementById("modalExtraMessages").innerText = randomMessage;
+    extraModal.style.display = "block"; // Muestra el segundo modal
 }
 
-// Function to close the modal
-function cerrarModal() {
-    var modal = document.getElementById('modal');
-    modal.style.display = 'none';
+// Función para cerrar los modales
+for (var i = 0; i < span.length; i++) {
+    span[i].onclick = function() {
+        modal.style.display = "none";   // Cierra el primer modal
+        extraModal.style.display = "none"; // Cierra el segundo modal
+    }
+}
+
+// Función para cerrar los modales cuando se hace clic fuera de ellos
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";   // Cierra el primer modal
+    }
+    if (event.target == extraModal) {
+        extraModal.style.display = "none"; // Cierra el segundo modal
+    }
 }
