@@ -2,16 +2,17 @@
 body, html {
     height: 100%;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Pacifico', cursive; /* Cambiar el tipo de letra */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #f0f0f0; /* Optional: change the background color */
+    background-color: #ffe4e1; /* Cambiar el color de fondo */
 }
 
 .container {
     text-align: center;
+    margin: 20px; /* Añadir margen alrededor del contenedor */
 }
 
 /* Styles for the modal */
@@ -43,6 +44,14 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    background-color: #ff69b4; /* Añadir color de fondo a los botones */
+    color: white; /* Color del texto de los botones */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+button:hover {
+    background-color: #ff1493; /* Cambiar color al pasar el cursor */
 }
 
 .close {
