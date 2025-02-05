@@ -31,3 +31,12 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+
+#no {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+#no:hover {
+    transform: none; /* Prevent movement */
+}
