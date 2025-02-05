@@ -1,124 +1,33 @@
-// Array of 100 different messages for the "No" button
-const mensajesNo = [
-    "Ah, ya sabía que dirías que no.",
-    "¡Oh, qué pena que no quieras verlo!",
-    "¡Vamos, anímate, seguro te gusta!",
-    "¡No te preocupes, está bien decir que no!",
-    "¡Oh, parece que no estás interesado!",
-    "¡No pasa nada, quizá la próxima vez!",
-    "¡Entiendo, no siempre se puede querer!",
-    "¡Vaya, me lo esperaba!",
-    "¡Está bien, respeto tu decisión!",
-    "¡Oh, qué lástima!",
-    "¡Seguro que cambiarás de opinión!",
-    "¡No hay problema, tal vez más tarde!",
-    "¡Bueno, será para otra ocasión!",
-    "¡No te preocupes, está bien!",
-    "¡Oh, parece que no estás de humor!",
-    "¡Vaya, me lo esperaba!",
-    "¡Oh, qué pena!",
-    "¡Seguro que cambiarás de opinión!",
-    "¡No hay problema!",
-    "¡Bueno, será para otra ocasión!",
-    "¡No te preocupes, está bien decir que no!",
-    "¡Oh, parece que no estás interesado!",
-    "¡No pasa nada, quizá la próxima vez!",
-    "¡Entiendo, no siempre se puede querer!",
-    "¡Vaya, me lo esperaba!",
-    "¡Está bien, respeto tu decisión!",
-    "¡Oh, qué lástima!",
-    "¡Seguro que cambiarás de opinión!",
-    "¡No hay problema, tal vez más tarde!",
-    "¡Bueno, será para otra ocasión!",
-    "¡No te preocupes, está bien!",
-    "¡Oh, parece que no estás de humor!",
-    "¡Vaya, me lo esperaba!",
-    "¡Oh, qué pena!",
-    "¡Seguro que cambiarás de opinión!",
-    "¡No hay problema!",
-    "¡Bueno, será para otra ocasión!",
-    "¡No te preocupes, está bien decir que no!",
-    "¡Oh, parece que no estás interesado!",
-    "¡No pasa nada, quizá la próxima vez!",
-    "¡Entiendo, no siempre se puede querer!",
-    "¡Vaya, me lo esperaba!",
-    "¡Está bien, respeto tu decisión!",
-    "¡Oh, qué lástima!",
-    "¡Seguro que cambiarás de opinión!",
-    "¡No hay problema, tal vez más tarde!",
-    "¡Bueno, será para otra ocasión!",
-    "¡No te preocupes, está bien!",
-    "¡Oh, parece que no estás de humor!",
-    "¡Vaya, me lo esperaba!",
-    "¡Oh, qué pena!",
-    "¡Seguro que cambiarás de opinión!",
-    "¡No hay problema!",
-    "¡Bueno, será para otra ocasión!",
-    "¡No te preocupes, está bien decir que no!",
-    "¡Oh, parece que no estás interesado!",
-    "¡No pasa nada, quizá la próxima vez!",
-    "¡Entiendo, no siempre se puede querer!",
-    "¡Vaya, me lo esperaba!",
-    "¡Está bien, respeto tu decisión!",
-    "¡Oh, qué lástima!",
-    "¡Seguro que cambiarás de opinión!",
-    "¡No hay problema, tal vez más tarde!",
-    "¡Bueno, será para otra ocasión!",
-    "¡No te preocupes, está bien!",
-    "¡Oh, parece que no estás de humor!",
-    "¡Vaya, me lo esperaba!",
-    "¡Oh, qué pena!",
-    "¡Seguro que cambiarás de opinión!",
-    "¡No hay problema!",
-    "¡Bueno, será para otra ocasión!",
-    "¡No te preocupes, está bien decir que no!",
-    "¡Oh, parece que no estás interesado!",
-    "¡No pasa nada, quizá la próxima vez!",
-    "¡Entiendo, no siempre se puede querer!",
-    "¡Vaya, me lo esperaba!",
-    "¡Está bien, respeto tu decisión!",
-    "¡Oh, qué lástima!",
-    "¡Seguro que cambiarás de opinión!",
-    "¡No hay problema, tal vez más tarde!",
-    "¡Bueno, será para otra ocasión!",
-    "¡No te preocupes, está bien!",
-    "¡Oh, parece que no estás de humor!",
-    "¡Vaya, me lo esperaba!",
-    "¡Oh, qué pena!",
-    "¡Seguro que cambiarás de opinión!",
-    "¡No hay problema!",
-    "¡Bueno, será para otra ocasión!",
-    "¡No te preocupes, está bien decir que no!",
-    "¡Oh, parece que no estás interesado!",
-    "¡No pasa nada, quizá la próxima vez!",
-    "¡Entiendo, no siempre se puede querer!",
-    "¡Vaya, me lo esperaba!",
-    "¡Está bien, respeto tu decisión!",
-    "¡Oh, qué lástima!",
-    "¡Seguro que cambiarás de opinión!",
-    "¡No hay problema, tal vez más tarde!",
-    "¡Bueno, será para otra ocasión!"
-];
-
-// Function to show the modal with the special message
-function mostrarMensaje() {
-    var modal = document.getElementById('modal');
-    var mensaje = document.getElementById('mensaje');
-    mensaje.textContent = '💖 ¡Sabía que dirías que sí! Eres una persona increíble, y espero que hoy sea un día hermoso para ti. 🌹✨';
-    modal.style.display = 'block';
+/* Styles for the modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-// Function to show a random message when "No" button is clicked
-function mostrarMensajeNo() {
-    var modal = document.getElementById('modal');
-    var mensaje = document.getElementById('mensaje');
-    var randomIndex = Math.floor(Math.random() * mensajesNo.length);
-    mensaje.textContent = mensajesNo[randomIndex];
-    modal.style.display = 'block';
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
 }
 
-// Function to close the modal
-function cerrarModal() {
-    var modal = document.getElementById('modal');
-    modal.style.display = 'none';
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
