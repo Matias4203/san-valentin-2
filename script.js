@@ -39,9 +39,8 @@ extraBtn.onclick = function() {
 }
 
 // Función para cerrar los modales
-function cerrarModal() {
-    modal.style.display = "none";   // Cierra el primer modal
-    extraModal.style.display = "none"; // Cierra el segundo modal
+function cerrarModal(modalId) {
+    document.getElementById(modalId).style.display = "none"; // Cierra el modal especificado
 }
 
 // Función para cerrar los modales cuando se hace clic fuera de ellos
