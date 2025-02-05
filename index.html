@@ -28,6 +28,7 @@
             border-radius: 5px;
             font-size: 18px;
             cursor: pointer;
+            margin: 10px;
         }
         .button:hover {
             background-color: #ff1a4d;
@@ -72,6 +73,95 @@
     </div>
 
     <button class="button" id="showMessagesBtn">¡Haz clic para ver mensajes graciosos!</button>
+    <button class="button" id="showExtraMessagesBtn">¡Haz clic para más bromas!</button>
 
-    <!-- Modal -->
-    <div id="myMo
+    <!-- Modal 1 -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Mensajes divertidos para San Valentín:</h2>
+            <ul>
+                <li>Ah, yo sabía que no querías, pero seguro que no cambias de opinión.</li>
+                <li>¿Vas a decir que no? ¡Lo sabía! Pero no puedo resistir verte sonreír.</li>
+                <li>No soy experto en amor, pero tú y yo juntos, eso sí que tiene sentido.</li>
+                <li>¿Sabías que todos los caminos llevan a Roma? Bueno, los míos siempre me llevan a ti.</li>
+                <li>Te dije que no querías, pero seguro que lo sabes, ¿verdad?</li>
+                <li>¿En serio no te gusta el chocolate? Claro, claro... no te creo.</li>
+                <li>Este San Valentín, no tengo flores... pero tengo muchas bromas.</li>
+                <li>¿Sabías que no me importa que no me quieras? No, en serio… no me importa. O sí...</li>
+                <li>Oye, si me dices que no, ¿puedes hacerlo con un beso?</li>
+                <li>¡Este San Valentín no hay excusas! ¿Qué tal un poco de cariño, aunque sea en forma de emojis?</li>
+                <li>Ah, ¡no me vas a cambiar de opinión! Bueno... igual un poquito.</li>
+                <li>Te apuesto que te enamoras de mí en menos de 10 segundos.</li>
+                <li>Si este San Valentín no me quieres, ¿te gustaría ser mi amigo con derechos de chocolatito?</li>
+                <li>No me dejes en visto, mi corazón podría romperse.</li>
+                <li>Te quiero más que a mis memes. Y eso es mucho decir.</li>
+                <li>En mi lista de cosas por hacer: ver tu sonrisa. ✔️</li>
+                <li>Mi amor por ti no tiene límites... como mi paciencia para esperar que me contestes.</li>
+                <li>Este San Valentín, mi corazón late más rápido por ti... o quizás es por el café que acabo de tomar.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="extraModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Más bromas de San Valentín:</h2>
+            <ul>
+                <li>Si no me quieres, ¿te parece si te conquisto con mi humor?</li>
+                <li>Ya sé que no crees en el amor a primera vista, pero ¿y qué tal a segunda?</li>
+                <li>Si no me das un beso, voy a empezar a contar hasta mil. ¡Más vale que me des uno antes!</li>
+                <li>Te quiero más que a mis zapatillas viejas. ¡Y eso es mucho decir!</li>
+                <li>¿Sabías que soy un experto en corazones rotos? El tuyo me lo llevo.</li>
+                <li>Este San Valentín solo quiero tu sonrisa… y un chocolate, tal vez.</li>
+                <li>Si el amor es ciego, entonces ¿por qué estás tan guapa?</li>
+                <li>Creo que te debo un beso, ¿lo reclamas o lo dejas como deuda?</li>
+                <li>Este año, mi San Valentín no es el 14… es todos los días en que te veo.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Obtener los modales
+        var modal = document.getElementById("myModal");
+        var extraModal = document.getElementById("extraModal");
+
+        // Obtener los botones que abren los modales
+        var btn = document.getElementById("showMessagesBtn");
+        var extraBtn = document.getElementById("showExtraMessagesBtn");
+
+        // Obtener el elemento <span> que cierra los modales
+        var span = document.getElementsByClassName("close");
+
+        // Función para abrir el primer modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // Función para abrir el segundo modal
+        extraBtn.onclick = function() {
+            extraModal.style.display = "block";
+        }
+
+        // Función para cerrar los modales
+        for (var i = 0; i < span.length; i++) {
+            span[i].onclick = function() {
+                modal.style.display = "none";
+                extraModal.style.display = "none";
+            }
+        }
+
+        // Función para cerrar los modales cuando se hace clic fuera de ellos
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            if (event.target == extraModal) {
+                extraModal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
