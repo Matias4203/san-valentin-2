@@ -6,7 +6,7 @@ var extraModal = document.getElementById("extraModal");
 var btn = document.getElementById("showMessagesBtn");
 var extraBtn = document.getElementById("showExtraMessagesBtn");
 
-// Array de mensajes bonitos
+// Array de Si
 var messages = [
     "¡Tú eres la razón por la que sonrío todos los días!",
     "Eres mi sol en los días nublados.",
@@ -15,7 +15,7 @@ var messages = [
     "La mejor parte de mi vida es tenerte a ti."
 ];
 
-// Array de mensajes graciosos
+// Array de No
 var extraMessages = [
     "Ah, yo sabía que no querías, pero seguro que no cambias de opinión.",
     "¿Vas a decir que no? ¡Lo sabía! Pero no puedo resistir verte sonreír.",
@@ -24,14 +24,14 @@ var extraMessages = [
     "Te dije que no querías, pero seguro que lo sabes, ¿verdad?"
 ];
 
-// Función para abrir el primer modal con mensaje bonito
+// Función para abrir el primer modal con Si
 btn.onclick = function() {
     var randomMessage = messages[Math.floor(Math.random() * messages.length)];
     document.getElementById("modalMessages").innerText = randomMessage;
     modal.style.display = "block"; // Muestra el primer modal
 }
 
-// Función para abrir el segundo modal con mensajes graciosos
+// Función para abrir el segundo modal con No
 extraBtn.onclick = function() {
     var randomMessage = extraMessages[Math.floor(Math.random() * extraMessages.length)];
     document.getElementById("modalExtraMessages").innerText = randomMessage;
