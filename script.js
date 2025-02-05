@@ -12,16 +12,8 @@ var messages = [
     "Eres mi sol en los días nublados.",
     "Siempre en mi mente, en mi corazón y en mis sueños.",
     "A tu lado todo es mejor. ¡Feliz San Valentín!",
-    "La mejor parte de mi vida es tenerte a ti."
-];
-
-// Array de preguntas relacionadas
-var questions = [
-    "¿Cuál es tu color favorito?",
-    "¿Cuál es tu película romántica favorita?",
-    "¿Qué te gusta hacer en tu tiempo libre?",
-    "¿Cuál es tu lugar favorito para visitar?",
-    "¿Qué te hace feliz?"
+    "La mejor parte de mi vida es tenerte a ti.",
+    "No soy experto en amor pero tú y yo juntos, eso sí que tiene sentido."
 ];
 
 // Arrays para controlar los mensajes mostrados
@@ -40,6 +32,15 @@ btn.onclick = function() {
     document.getElementById("modalMessages").innerText = randomMessage;
     modal.style.display = "block"; // Muestra el modal
 }
+
+// Array de preguntas relacionadas
+var questions = [
+    "¿Cuál es tu color favorito?",
+    "¿Cuál es tu película romántica favorita?",
+    "¿Qué te gusta hacer en tu tiempo libre?",
+    "¿Cuál es tu lugar favorito para visitar?",
+    "¿Qué te hace feliz?"
+];
 
 // Función para abrir el modal con una pregunta
 extraBtn.onclick = function() {
