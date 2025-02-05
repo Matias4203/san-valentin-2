@@ -1,30 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz 14 de Febrero</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>🌹 ¡Feliz 14 de Febrero! 🌹</h1>
-        <p class="mensaje">
-            Hoy quiero aprovechar para decirte que eres una persona increíble.  
-            Gracias por tu amistad y por compartir momentos especiales.  
-            Espero que este día esté lleno de felicidad para ti.  
-        </p>
-        <p class="firma">💖 Con cariño, tu amigo.</p>
-
-        <div class="botones">
-            <button id="btnSi" onclick="mostrarMensaje()">💖 Sí</button>
-            <button id="btnNo" onmouseover="moverBoton()" ontouchstart="moverBoton()">❌ No</button>
-        </div>
-
-        <div id="mensajeCariñoso" class="oculto">
-            <p>💖 ¡Sabía que dirías que sí! Eres una persona increíble, y espero que hoy sea un día hermoso para ti. 🌹✨</p>
-        </div>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <p>💖 ¡Sabía que dirías que sí! Eres una persona increíble, y espero que hoy sea un día hermoso para ti. 🌹✨</p>
+        <button onclick="cerrarModal()">Cerrar</button>
     </div>
-    <script src="script.js"></script>
-</body>
-</html>
+</div>
