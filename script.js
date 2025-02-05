@@ -1,23 +1,35 @@
+// Function to show the modal with the special message
 function mostrarMensaje() {
-    document.getElementById("modal").style.display = "block";
+    var modal = document.getElementById('modal');
+    var mensaje = document.getElementById('mensaje');
+    mensaje.textContent = '💖 ¡Sabía que dirías que sí! Eres una persona increíble, y espero que hoy sea un día hermoso para ti. 🌹✨';
+    modal.style.display = 'block';
 }
 
+// Function to close the modal
 function cerrarModal() {
-    document.getElementById("modal").style.display = "none";
+    var modal = document.getElementById('modal');
+    modal.style.display = 'none';
 }
 
+// Function to move the "No" button to a random position
 function moverNo() {
-    var botonNo = document.getElementById("no");
-    var maxX = window.innerWidth - botonNo.offsetWidth;
-    var maxY = window.innerHeight - botonNo.offsetHeight;
+    var noButton = document.getElementById('no');
+    var container = document.querySelector('.container');
 
-    var posX = Math.random() * maxX;
-    var posY = Math.random() * maxY;
+    var containerWidth = container.offsetWidth;
+    var containerHeight = container.offsetHeight;
 
-    botonNo.style.left = posX + "px";
-    botonNo.style.top = posY + "px";
+    // Generate random positions within the container bounds
+    var randomX = Math.floor(Math.random() * (containerWidth - noButton.offsetWidth));
+    var randomY = Math.floor(Math.random() * (containerHeight - noButton.offsetHeight));
+
+    noButton.style.position = 'absolute';
+    noButton.style.left = randomX + 'px';
+    noButton.style.top = randomY + 'px';
 }
 
+// Function to handle the "No" button click
 function noSeleccionado() {
-    alert("¡Parece que preferiste no elegir el botón! Elige 'Sí' para ver el mensaje.");
+    alert("¡Oh! Parece que no quieres ver el mensaje especial. 😢");
 }
