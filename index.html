@@ -8,25 +8,27 @@
 </head>
 <body>
 
-    <h1>¡Feliz San Valentín!</h1>
-    <p>Haz clic para ver un mensaje especial</p>
+    <div class="container">
+        <h1>¡Feliz San Valentín!</h1>
+        <p>Haz clic para ver un mensaje especial</p>
 
-    <button id="showMessagesBtn" class="btn">Ver Mensajes Bonitos</button>
-    <button id="showExtraMessagesBtn" class="btn">Ver Mensajes Graciosos</button>
+        <button id="showMessagesBtn" class="btn">Ver Mensajes Bonitos</button>
+        <button id="showExtraMessagesBtn" class="btn">Ver Mensajes Graciosos</button>
+    </div>
 
     <!-- Modal para Mensajes Bonitos -->
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="cerrarModal()">&times;</span>
+            <span class="close" onclick="cerrarModal('myModal')">&times;</span>
             <h2>Mensaje Bonito</h2>
-            <p id="modalMessages">¡Tú eres la razón por la que sonrío todos los días!</p>
+            <p id="modalMessages"></p>
         </div>
     </div>
 
     <!-- Modal para Mensajes Graciosos -->
     <div id="extraModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="cerrarModal()">&times;</span>
+            <span class="close" onclick="cerrarModal('extraModal')">&times;</span>
             <h2>Mensajes Graciosos</h2>
             <p id="modalExtraMessages"></p>
         </div>
