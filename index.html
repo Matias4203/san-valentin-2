@@ -10,12 +10,13 @@
     <div class="container">
         <h1>🌹 ¡Feliz 14 de Febrero! 🌹</h1>
         <p>¿Quieres ver un mensaje especial?</p>
-        <button id="si" onclick="mostrarMensaje()">Sí</button>
+        <button id="si" onclick="mostrarMensajeSi()">Sí</button>
         <button id="no" onclick="mostrarMensajeNo()">No</button>
+
         <!-- Modal -->
         <div id="modal" class="modal">
             <div class="modal-content">
-                <p id="mensaje">💖 ¡Sabía que dirías que sí! Eres una persona increíble, y espero que hoy sea un día hermoso para ti. 🌹✨</p>
+                <p id="mensaje"></p>
                 <button onclick="cerrarModal()">Cerrar</button>
             </div>
         </div>
