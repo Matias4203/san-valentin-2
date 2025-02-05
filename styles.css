@@ -1,3 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff69b4;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #ff1493;
+}
+
+#si {
+    position: relative;
+    z-index: 10;
+}
+
+#no {
+    position: relative;
+    z-index: 10;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -14,20 +44,7 @@
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    width: 80%; /* Ajustado para ocupar el 80% de la pantalla */
-    max-width: 400px; /* Máximo ancho de 400px */
+    width: 80%;
+    max-width: 400px;
     margin: 20% auto;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #ff69b4;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #ff1493;
 }
