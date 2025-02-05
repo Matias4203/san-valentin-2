@@ -24,9 +24,19 @@ var questions = [
     "¿Qué te hace feliz?"
 ];
 
+// Arrays para controlar los mensajes mostrados
+var shownMessages = [];
+var remainingMessages = [...messages];
+
 // Función para abrir el modal con mensaje bonito
 btn.onclick = function() {
-    var randomMessage = messages[Math.floor(Math.random() * messages.length)];
+    if (remainingMessages.length === 0) {
+        remainingMessages = [...shownMessages];
+        shownMessages = [];
+    }
+    var randomIndex = Math.floor(Math.random() * remainingMessages.length);
+    var randomMessage = remainingMessages.splice(randomIndex, 1)[0];
+    shownMessages.push(randomMessage);
     document.getElementById("modalMessages").innerText = randomMessage;
     modal.style.display = "block"; // Muestra el modal
 }
