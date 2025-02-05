@@ -13,7 +13,7 @@ const mensajesNo = [
 ];
 
 // Function to show the modal with the special message for "Sí"
-function mostrarMensaje() {
+function mostrarMensajeSi() {
     var modal = document.getElementById('modal');
     var mensaje = document.getElementById('mensaje');
     mensaje.textContent = '💖 ¡Sabía que dirías que sí! Eres una persona increíble, y espero que hoy sea un día hermoso para ti. 🌹✨';
