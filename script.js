@@ -6,9 +6,6 @@ var extraModal = document.getElementById("extraModal");
 var btn = document.getElementById("showMessagesBtn");
 var extraBtn = document.getElementById("showExtraMessagesBtn");
 
-// Obtener el elemento <span> que cierra los modales
-var span = document.getElementsByClassName("close");
-
 // Array de mensajes bonitos
 var messages = [
     "¡Tú eres la razón por la que sonrío todos los días!",
@@ -42,11 +39,9 @@ extraBtn.onclick = function() {
 }
 
 // Función para cerrar los modales
-for (var i = 0; i < span.length; i++) {
-    span[i].onclick = function() {
-        modal.style.display = "none";   // Cierra el primer modal
-        extraModal.style.display = "none"; // Cierra el segundo modal
-    }
+function cerrarModal() {
+    modal.style.display = "none";   // Cierra el primer modal
+    extraModal.style.display = "none"; // Cierra el segundo modal
 }
 
 // Función para cerrar los modales cuando se hace clic fuera de ellos
