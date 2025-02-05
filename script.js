@@ -6,7 +6,7 @@ var extraModal = document.getElementById("extraModal");
 var btn = document.getElementById("showMessagesBtn");
 var extraBtn = document.getElementById("showExtraMessagesBtn");
 
-// Array de Si
+// Array de mensajes bonitos
 var messages = [
     "¡Tú eres la razón por la que sonrío todos los días!",
     "Eres mi sol en los días nublados.",
@@ -15,27 +15,27 @@ var messages = [
     "La mejor parte de mi vida es tenerte a ti."
 ];
 
-// Array de No
-var extraMessages = [
-    "Ah, yo sabía que no querías, pero seguro que no cambias de opinión.",
-    "¿Vas a decir que no? ¡Lo sabía! Pero no puedo resistir verte sonreír.",
-    "No soy experto en amor, pero tú y yo juntos, eso sí que tiene sentido.",
-    "¿Sabías que todos los caminos llevan a Roma? Bueno, los míos siempre me llevan a ti.",
-    "Te dije que no querías, pero seguro que lo sabes, ¿verdad?"
+// Array de preguntas relacionadas
+var questions = [
+    "¿Cuál es tu color favorito?",
+    "¿Cuál es tu película romántica favorita?",
+    "¿Qué te gusta hacer en tu tiempo libre?",
+    "¿Cuál es tu lugar favorito para visitar?",
+    "¿Qué te hace feliz?"
 ];
 
-// Función para abrir el primer modal con Si
+// Función para abrir el modal con mensaje bonito
 btn.onclick = function() {
     var randomMessage = messages[Math.floor(Math.random() * messages.length)];
     document.getElementById("modalMessages").innerText = randomMessage;
-    modal.style.display = "block"; // Muestra el primer modal
+    modal.style.display = "block"; // Muestra el modal
 }
 
-// Función para abrir el segundo modal con No
+// Función para abrir el modal con una pregunta
 extraBtn.onclick = function() {
-    var randomMessage = extraMessages[Math.floor(Math.random() * extraMessages.length)];
-    document.getElementById("modalExtraMessages").innerText = randomMessage;
-    extraModal.style.display = "block"; // Muestra el segundo modal
+    var randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+    document.getElementById("modalExtraMessages").innerText = randomQuestion;
+    extraModal.style.display = "block"; // Muestra el modal
 }
 
 // Función para cerrar los modales
