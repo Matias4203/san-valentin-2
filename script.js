@@ -5,6 +5,7 @@ const secretMessages = [
     "Eres mi sol en días nublados. ☀️"
 ];
 const correctUnlockCode = "420";
+let revealedCode = "";
 
 document.getElementById('showMessagesBtn').addEventListener('click', function() {
     goToSection('section2');
@@ -109,6 +110,14 @@ function revealSecretMessage() {
     const randomIndex = Math.floor(Math.random() * secretMessages.length);
     const secretMessage = secretMessages[randomIndex];
     alert(secretMessage);
+}
+
+function revealCode(number) {
+    revealedCode += number;
+    alert(`Parte del código revelado: ${number}`);
+    if (revealedCode.length === 3) {
+        alert(`Código completo revelado: ${revealedCode}`);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
