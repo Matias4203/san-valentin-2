@@ -65,33 +65,6 @@ function displayErrorMessage() {
     errorMessage.innerText = 'ERROR AL MOSTRAR EL MENSAJE';
 }
 
-function startCountdown() {
-    let countdown = 10;
-    const countdownElement = document.getElementById('countdown');
-    const interval = setInterval(() => {
-        countdown--;
-        countdownElement.textContent = countdown;
-        if (countdown === 0) {
-            clearInterval(interval);
-            goToSection('fakeIntro');
-        }
-    }, 1000);
-}
-
-function showAds() {
-    attempts++;
-    if (attempts >= 3) {
-        goToSection('intro');
-    } else {
-        goToSection('adSection');
-    }
-}
-
-function showFakeError() {
-    alert("Error: No se puede cargar el contenido.");
-    goToSection('fakeIntro');
-}
-
 function showUnlockCode() {
     goToSection('unlockSection');
 }
@@ -149,9 +122,5 @@ document.addEventListener('DOMContentLoaded', function() {
         finalSecretMessage.style.opacity = '1';
     });
 
-    setTimeout(() => {
-        document.getElementById('loadingSection').style.display = 'none';
-        goToSection('errorSection');
-        startCountdown();
-    }, 3000);
+    goToSection('intro'); // Start directly at the intro section
 });
