@@ -9,14 +9,16 @@ document.getElementById('showExtraMessagesBtn').addEventListener('click', functi
 });
 
 document.getElementById('modalYesBtn').addEventListener('click', function() {
+    displayErrorMessage();
     closeModal();
-    goToSection('section2');
-    showHearts();
-    localStorage.setItem('agreedToSeeMessage', 'true');
+    setTimeout(() => {
+        goToSection('section2');
+        showHearts();
+        localStorage.setItem('agreedToSeeMessage', 'true');
+    }, 100); // Small delay to show the error message
 });
 
 document.getElementById('modalNoBtn').addEventListener('click', function() {
-    displayErrorMessage();
     closeModal();
     setTimeout(showModal, 100); // Small delay to prevent modal flicker
 });
