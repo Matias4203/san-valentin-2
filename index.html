@@ -14,6 +14,18 @@
         <p>Lo sentimos, algo salió mal. Redirigiendo en <span id="countdown">10</span> segundos...</p>
     </div>
 
+    <div id="fakeIntro" class="section" style="display:none;">
+        <h1>Página en Mantenimiento</h1>
+        <p>Estamos realizando mejoras en el sitio. Por favor, intenta nuevamente más tarde.</p>
+        <button onclick="showAds()" class="btn">Intentar de nuevo</button>
+    </div>
+
+    <div id="adSection" class="section" style="display:none;">
+        <h1>Anuncio</h1>
+        <p>Anuncio falso. Haga clic para continuar.</p>
+        <button onclick="showFakeError()" class="btn">Continuar</button>
+    </div>
+
     <div id="intro" class="section" style="display:none;">
         <h1 id="welcomeMessage">¡Bienvenida a tu página de San Valentín! 💖</h1>
         <button onclick="goToSection('section1')" class="btn">Haz clic para ver algo especial</button>
