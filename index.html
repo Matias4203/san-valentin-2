@@ -33,6 +33,12 @@
     <div id="section3" class="section" style="display:none;">
         <h2>Te quiero mucho enana</h2>
         <p>Espero que todo esto hubiera sido agradable para usted y espero que lo hubiera pasa bien.</p>
+        <button onclick="goToSection('finalSurprise')" class="btn">¿Listo para la sorpresa final?</button>
+    </div>
+
+    <div id="finalSurprise" class="section" style="display:none;">
+        <h2>Declaración de Amor</h2>
+        <p>Desde que te conocí, supe que eras alguien especial. Quiero que sepas que eres la persona más importante para mí y que cada momento contigo es un tesoro. Te amo más de lo que las palabras pueden expresar. ¡Feliz San Valentín!</p>
         <button onclick="goToSection('thankYou')" class="btn">Finalizar</button>
     </div>
 
@@ -44,7 +50,7 @@
 
     <div id="modal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="cerrarModal('modal')">&times;</span>
+            <span class="close" onclick="closeModal()">&times;</span>
             <p id="modalMessage">¿Estás segura de que no quieres ver el mensaje?</p>
             <button id="modalYesBtn" class="btn">Sí</button>
             <button id="modalNoBtn" class="btn">No</button>
