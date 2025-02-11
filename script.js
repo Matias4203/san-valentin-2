@@ -1,3 +1,5 @@
+let attempts = 0;
+
 document.getElementById('showMessagesBtn').addEventListener('click', function() {
     goToSection('section2');
     showHearts();
@@ -64,24 +66,23 @@ function startCountdown() {
         countdownElement.textContent = countdown;
         if (countdown === 0) {
             clearInterval(interval);
-            goToSection('intro');
-            startAdditionalErrors();
+            goToSection('fakeIntro');
         }
     }, 1000);
 }
 
-function startAdditionalErrors() {
-    setTimeout(() => {
-        alert("Error: No se puede cargar el contenido.");
-    }, 5000);
+function showAds() {
+    attempts++;
+    if (attempts >= 20) {
+        goToSection('intro');
+    } else {
+        goToSection('adSection');
+    }
+}
 
-    setTimeout(() => {
-        alert("Error: Conexión perdida. Intentando reconectar...");
-    }, 10000);
-
-    setTimeout(() => {
-        alert("Broma: ¡Todo está bien! 😄");
-    }, 15000);
+function showFakeError() {
+    alert("Error: No se puede cargar el contenido.");
+    goToSection('fakeIntro');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
