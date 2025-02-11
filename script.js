@@ -153,5 +153,5 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('loadingSection').style.display = 'none';
         goToSection('errorSection');
         startCountdown();
-    }, 5000);
+    }, 3000);
 });
