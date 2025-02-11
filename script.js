@@ -16,6 +16,7 @@ document.getElementById('modalYesBtn').addEventListener('click', function() {
 });
 
 document.getElementById('modalNoBtn').addEventListener('click', function() {
+    displayErrorMessage();
     closeModal();
     setTimeout(showModal, 100); // Small delay to prevent modal flicker
 });
@@ -45,6 +46,12 @@ function showHearts() {
     setTimeout(() => {
         document.body.removeChild(hearts);
     }, 5000);
+}
+
+function displayErrorMessage() {
+    const errorMessage = document.getElementById('errorMessage');
+    errorMessage.style.display = 'block';
+    errorMessage.innerText = 'ERROR AL MOSTRAR EL MENSAJE';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
