@@ -19,7 +19,6 @@
         <p>¿Quieres ver un mensaje?</p>
         <button id="showMessagesBtn" class="btn">Sí</button>
         <button id="showExtraMessagesBtn" class="btn">No</button>
-        <button onclick="goToSection('section2')" class="btn">Continuar</button>
         <button onclick="goToSection('intro')" class="btn">Regresar</button>
     </div>
 
@@ -58,8 +57,8 @@
             <span class="close" onclick="closeModal()">&times;</span>
             <p id="modalMessage">¿Estás segura de que no quieres ver el mensaje?</p>
             <button id="modalYesBtn" class="btn">Sí</button>
+           <p id="errorMessage" style="display:none; color:red;"></p>
             <button id="modalNoBtn" class="btn">No</button>
-            <p id="errorMessage" style="display:none; color:red;"></p>
         </div>
     </div>
 
