@@ -73,7 +73,7 @@ function startCountdown() {
 
 function showAds() {
     attempts++;
-    if (attempts >= 20) {
+    if (attempts >= 3) {
         goToSection('intro');
     } else {
         goToSection('adSection');
