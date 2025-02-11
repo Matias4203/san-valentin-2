@@ -17,7 +17,7 @@ document.getElementById('modalYesBtn').addEventListener('click', function() {
 
 document.getElementById('modalNoBtn').addEventListener('click', function() {
     closeModal();
-    showModal();
+    setTimeout(showModal, 100); // Small delay to prevent modal flicker
 });
 
 function goToSection(sectionId) {
