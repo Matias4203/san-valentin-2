@@ -65,8 +65,23 @@ function startCountdown() {
         if (countdown === 0) {
             clearInterval(interval);
             goToSection('intro');
+            startAdditionalErrors();
         }
     }, 1000);
+}
+
+function startAdditionalErrors() {
+    setTimeout(() => {
+        alert("Error: No se puede cargar el contenido.");
+    }, 5000);
+
+    setTimeout(() => {
+        alert("Error: Conexión perdida. Intentando reconectar...");
+    }, 10000);
+
+    setTimeout(() => {
+        alert("Broma: ¡Todo está bien! 😄");
+    }, 15000);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
