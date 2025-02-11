@@ -65,6 +65,19 @@ function displayErrorMessage() {
     errorMessage.innerText = 'ERROR AL MOSTRAR EL MENSAJE';
 }
 
+function startCountdown() {
+    let countdown = 10;
+    const countdownElement = document.getElementById('countdown');
+    const interval = setInterval(() => {
+        countdown--;
+        countdownElement.textContent = countdown;
+        if (countdown === 0) {
+            clearInterval(interval);
+            goToSection('intro');
+        }
+    }, 1000);
+}
+
 function showUnlockCode() {
     goToSection('unlockSection');
 }
@@ -94,33 +107,5 @@ function revealCode(number) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const hiddenMessage = document.querySelector('.hidden-message');
-    const hiddenArea = document.getElementById('hiddenArea');
-    const finalHiddenArea = document.getElementById('finalHiddenArea');
-    const finalSecretMessage = document.getElementById('finalSecretMessage');
-
-    hiddenArea.addEventListener('click', revealSecretMessage);
-    finalHiddenArea.addEventListener('click', revealSecretMessage);
-
-    hiddenArea.addEventListener('mouseover', function() {
-        hiddenMessage.style.display = 'block';
-        hiddenMessage.style.opacity = '1';
-    });
-
-    hiddenArea.addEventListener('touchstart', function() {
-        hiddenMessage.style.display = 'block';
-        hiddenMessage.style.opacity = '1';
-    });
-
-    finalHiddenArea.addEventListener('mouseover', function() {
-        finalSecretMessage.style.display = 'block';
-        finalSecretMessage.style.opacity = '1';
-    });
-
-    finalHiddenArea.addEventListener('touchstart', function() {
-        finalSecretMessage.style.display = 'block';
-        finalSecretMessage.style.opacity = '1';
-    });
-
-    goToSection('intro'); // Start directly at the intro section
+    startCountdown();
 });
