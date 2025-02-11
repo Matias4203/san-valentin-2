@@ -49,8 +49,16 @@ function showHearts() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const hiddenMessage = document.querySelector('.hidden-message');
-    hiddenMessage.addEventListener('mouseover', function() {
+    const hiddenArea = document.getElementById('hiddenArea');
+    
+    hiddenArea.addEventListener('mouseover', function() {
         hiddenMessage.style.display = 'block';
+        hiddenMessage.style.opacity = '1';
+    });
+
+    hiddenArea.addEventListener('touchstart', function() {
+        hiddenMessage.style.display = 'block';
+        hiddenMessage.style.opacity = '1';
     });
 
     const agreedToSeeMessage = localStorage.getItem('agreedToSeeMessage');
