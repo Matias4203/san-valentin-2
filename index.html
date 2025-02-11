@@ -10,7 +10,7 @@
 <body>
 
     <div id="intro" class="section">
-        <h1>¡Bienvenida a tu página de San Valentín! 💖</h1>
+        <h1 id="welcomeMessage">¡Bienvenida a tu página de San Valentín! 💖</h1>
         <button onclick="goToSection('section1')" class="btn">Haz clic para ver algo especial</button>
     </div>
 
@@ -25,11 +25,15 @@
     <div id="section2" class="section" style="display:none;">
         <h2>Mensaje Bonito</h2>
         <p>No soy experto en amor, pero tú y yo juntos eso sí que tiene sentido.</p>
-        <button onclick="goToSection('section1')" class="btn">Regresar</button>
+        <button onclick="goToSection('section3')" class="btn">Continuar</button>
+        <div id="hiddenArea" class="hidden-area">💖</div>
+        <p id="secretMessage" class="hidden-message">Eres como la brisa que acaricia sin prisa, como la luna que ilumina sin pedir nada a cambio. En un mundo de pasos apresurados, contigo todo se siente en su justo tiempo, como si el destino hubiera decidido pausarse solo para nosotros.</p>
     </div>
 
-    <div id="secretMessage" class="section" style="display:none;">
-        <p class="hidden-message">Eres como la brisa que acaricia sin prisa, como la luna que ilumina sin pedir nada a cambio. En un mundo de pasos apresurados, contigo todo se siente en su justo tiempo, como si el destino hubiera decidido pausarse solo para nosotros.</p>
+    <div id="section3" class="section" style="display:none;">
+        <h2>Te quiero mucho enana</h2>
+        <p>Espero que todo esto hubiera sido agradable para usted y espero que lo hubiera pasa bien.</p>
+        <button onclick="goToSection('thankYou')" class="btn">Finalizar</button>
     </div>
 
     <div id="thankYou" class="section" style="display:none;">
