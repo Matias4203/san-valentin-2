@@ -56,6 +56,19 @@ function displayErrorMessage() {
     errorMessage.innerText = 'ERROR AL MOSTRAR EL MENSAJE';
 }
 
+function startCountdown() {
+    let countdown = 10;
+    const countdownElement = document.getElementById('countdown');
+    const interval = setInterval(() => {
+        countdown--;
+        countdownElement.textContent = countdown;
+        if (countdown === 0) {
+            clearInterval(interval);
+            goToSection('intro');
+        }
+    }, 1000);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const hiddenMessage = document.querySelector('.hidden-message');
     const hiddenArea = document.getElementById('hiddenArea');
@@ -82,8 +95,5 @@ document.addEventListener('DOMContentLoaded', function() {
         finalSecretMessage.style.opacity = '1';
     });
 
-    const agreedToSeeMessage = localStorage.getItem('agreedToSeeMessage');
-    if (!agreedToSeeMessage) {
-        showModal();
-    }
+    startCountdown();
 });
