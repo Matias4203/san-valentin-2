@@ -9,9 +9,26 @@
 </head>
 <body>
 
-    <div id="errorSection" class="section">
+    <div id="loadingSection" class="section">
+        <h1>Cargando...</h1>
+        <div class="loader"></div>
+    </div>
+
+    <div id="errorSection" class="section" style="display:none;">
         <h1>Error al cargar la página</h1>
         <p>Lo sentimos, algo salió mal. Redirigiendo en <span id="countdown">10</span> segundos...</p>
+    </div>
+
+    <div id="fakeIntro" class="section" style="display:none;">
+        <h1>Página en Mantenimiento</h1>
+        <p>Estamos realizando mejoras en el sitio. Por favor, intenta nuevamente más tarde.</p>
+        <button onclick="showAds()" class="btn">Intentar de nuevo</button>
+    </div>
+
+    <div id="adSection" class="section" style="display:none;">
+        <h1>Anuncio</h1>
+        <p>Anuncio falso. Haga clic para continuar.</p>
+        <button onclick="showFakeError()" class="btn">Continuar</button>
     </div>
 
     <div id="intro" class="section" style="display:none;">
@@ -25,17 +42,17 @@
         <button id="showMessagesBtn" class="btn">Sí</button>
         <button id="showExtraMessagesBtn" class="btn">No</button>
         <button onclick="goToSection('intro')" class="btn">Regresar</button>
-        <div class="hidden-heart" onclick="revealCode('4')">💖</div>
+        <div class="hidden-code">4</div>
     </div>
 
     <div id="section2" class="section" style="display:none;">
         <h2>Eres mi persona especial</h2>
         <p>No soy experto en amor, pero tú y yo juntos, eso sí que tiene sentido.</p>
-        <div class="hidden-heart" onclick="revealSecretMessage()">💖</div>
+        <div id="hiddenArea" class="hidden-area">💖</div>
         <p id="secretMessage" class="hidden-message">Eres como la brisa que acaricia sin prisa, como la luna que ilumina sin pedir nada a cambio. En un mundo de pasos apresurados, contigo todo se siente en su justo tiempo, como si el destino hubiera decidido pausarse solo para nosotros.</p>
         <button onclick="goToSection('section3')" class="btn">Siguiente</button>
         <button onclick="goToSection('section1')" class="btn">Regresar</button>
-        <div class="hidden-heart" onclick="revealCode('2')">💖</div>
+        <div class="hidden-code">2</div>
     </div>
 
     <div id="section3" class="section" style="display:none;">
@@ -43,7 +60,7 @@
         <p>Espero que todo esto haya sido agradable para ti y que te lo hayas pasado bien.</p>
         <button onclick="showUnlockCode()" class="btn">¿Listo para la sorpresa final?</button>
         <button onclick="goToSection('section2')" class="btn">Regresar</button>
-        <div class="hidden-heart" onclick="revealCode('0')">💖</div>
+        <div class="hidden-code">0</div>
     </div>
 
     <div id="unlockSection" class="section" style="display:none;">
@@ -64,7 +81,7 @@
 
     <div id="thankYou" class="section" style="display:none;">
         <p>Gracias por ser increíble. ¡Te deseo un hermoso San Valentín! 💖</p>
-        <div class="hidden-heart" onclick="revealSecretMessage()">💖</div>
+        <div id="finalHiddenArea" class="hidden-area">💖</div>
         <p id="finalSecretMessage" class="hidden-message">Mi amor por ti es infinito y cada día crece más. Eres mi todo. 💘</p>
         <button onclick="goToSection('finalSurprise')" class="btn">Regresar</button>
     </div>
