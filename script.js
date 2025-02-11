@@ -1,5 +1,4 @@
 document.getElementById('showMessagesBtn').addEventListener('click', function() {
-    goToSection('section2');document.getElementById('showMessagesBtn').addEventListener('click', function() {
     goToSection('section2');
     showHearts();
     localStorage.setItem('agreedToSeeMessage', 'true');
@@ -29,8 +28,9 @@ function goToSection(sectionId) {
     document.getElementById(sectionId).style.display = 'block';
 }
 
-function cerrarModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
 }
 
 function showModal() {
@@ -38,11 +38,6 @@ function showModal() {
     modal.style.display = 'flex';
 }
 
-function closeModal() {
-    const modal = document.getElementById('modal');
-    modal.style.display = 'none';
-}
-
 function showHearts() {
     const hearts = document.createElement('div');
     hearts.className = 'hearts';
@@ -58,41 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
         hiddenMessage.style.display = 'block';
     });
 
-    if (localStorage.getItem('agreedToSeeMessage') !== 'true') {
+    const agreedToSeeMessage = localStorage.getItem('agreedToSeeMessage');
+    if (!agreedToSeeMessage) {
         showModal();
     }
-});
-    showHearts();
-});
-
-document.getElementById('showExtraMessagesBtn').addEventListener('click', function() {
-    alert('No has querido ver el mensaje.');
-});
-
-function goToSection(sectionId) {
-    const sections = document.getElementsByClassName('section');
-    for (let i = 0; i < sections.length; i++) {
-        sections[i].style.display = 'none';
-    }
-    document.getElementById(sectionId).style.display = 'block';
-}
-
-function cerrarModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-}
-
-function showHearts() {
-    const hearts = document.createElement('div');
-    hearts.className = 'hearts';
-    document.body.appendChild(hearts);
-    setTimeout(() => {
-        document.body.removeChild(hearts);
-    }, 5000);
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    const hiddenMessage = document.querySelector('.hidden-message');
-    hiddenMessage.addEventListener('mouseover', function() {
-        hiddenMessage.style.display = 'block';
-    });
 });
