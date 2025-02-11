@@ -52,6 +52,18 @@ button:hover {
     transform: scale(1.1);
 }
 
+button:active {
+    animation: vibrate 0.2s linear infinite;
+}
+
+@keyframes vibrate {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(2px); }
+    50% { transform: translateX(0); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
 .close {
     color: #aaa;
     float: right;
@@ -86,6 +98,7 @@ button:hover {
 .hidden-message {
     display: none;
     animation: revealText 3s forwards;
+    opacity: 0;
 }
 
 @keyframes revealText {
@@ -116,4 +129,21 @@ button:hover {
     width: 80%;
     max-width: 600px;
     text-align: center;
+}
+
+#welcomeMessage:hover {
+    color: #ff6a88;
+    transition: color 0.5s;
+}
+
+#welcomeMessage:active {
+    color: #fad0c4;
+    transition: color 0.2s;
+}
+
+.hidden-area {
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 24px;
 }
