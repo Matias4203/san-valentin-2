@@ -1,5 +1,6 @@
 document.getElementById('showMessagesBtn').addEventListener('click', function() {
     goToSection('section2');
+    showHearts();
 });
 
 document.getElementById('showExtraMessagesBtn').addEventListener('click', function() {
@@ -17,3 +18,19 @@ function goToSection(sectionId) {
 function cerrarModal(modalId) {
     document.getElementById(modalId).style.display = 'none';
 }
+
+function showHearts() {
+    const hearts = document.createElement('div');
+    hearts.className = 'hearts';
+    document.body.appendChild(hearts);
+    setTimeout(() => {
+        document.body.removeChild(hearts);
+    }, 5000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const hiddenMessage = document.querySelector('.hidden-message');
+    hiddenMessage.addEventListener('mouseover', function() {
+        hiddenMessage.style.display = 'block';
+    });
+});
