@@ -59,6 +59,8 @@ function displayErrorMessage() {
 document.addEventListener('DOMContentLoaded', function() {
     const hiddenMessage = document.querySelector('.hidden-message');
     const hiddenArea = document.getElementById('hiddenArea');
+    const finalHiddenArea = document.getElementById('finalHiddenArea');
+    const finalSecretMessage = document.getElementById('finalSecretMessage');
     
     hiddenArea.addEventListener('mouseover', function() {
         hiddenMessage.style.display = 'block';
@@ -68,6 +70,16 @@ document.addEventListener('DOMContentLoaded', function() {
     hiddenArea.addEventListener('touchstart', function() {
         hiddenMessage.style.display = 'block';
         hiddenMessage.style.opacity = '1';
+    });
+
+    finalHiddenArea.addEventListener('mouseover', function() {
+        finalSecretMessage.style.display = 'block';
+        finalSecretMessage.style.opacity = '1';
+    });
+
+    finalHiddenArea.addEventListener('touchstart', function() {
+        finalSecretMessage.style.display = 'block';
+        finalSecretMessage.style.opacity = '1';
     });
 
     const agreedToSeeMessage = localStorage.getItem('agreedToSeeMessage');
