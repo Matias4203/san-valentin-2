@@ -9,7 +9,12 @@
 </head>
 <body>
 
-    <div id="section1" class="section">
+    <div id="intro" class="section">
+        <h1>¡Bienvenida a tu página de San Valentín! 💖</h1>
+        <button onclick="goToSection('section1')" class="btn">Haz clic para ver algo especial</button>
+    </div>
+
+    <div id="section1" class="section" style="display:none;">
         <h1>¡Feliz San Valentín!</h1>
         <p>¿Quieres ver un mensaje?</p>
         <button id="showMessagesBtn" class="btn">Sí</button>
@@ -21,6 +26,14 @@
         <h2>Mensaje Bonito</h2>
         <p>No soy experto en amor, pero tú y yo juntos eso sí que tiene sentido.</p>
         <button onclick="goToSection('section1')" class="btn">Regresar</button>
+    </div>
+
+    <div id="secretMessage" class="section" style="display:none;">
+        <p class="hidden-message">Eres como la brisa que acaricia sin prisa, como la luna que ilumina sin pedir nada a cambio. En un mundo de pasos apresurados, contigo todo se siente en su justo tiempo, como si el destino hubiera decidido pausarse solo para nosotros.</p>
+    </div>
+
+    <div id="thankYou" class="section" style="display:none;">
+        <p>Gracias por ser increíble. ¡Te deseo un hermoso San Valentín! 💖</p>
     </div>
 
     <div class="hearts"></div>
