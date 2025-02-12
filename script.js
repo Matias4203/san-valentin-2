@@ -1,12 +1,14 @@
-// Mostrar "Cargando..." por 3 segundos
-setTimeout(() => {
-    document.getElementById('loadingSection').style.display = 'none';
-    document.getElementById('errorSection').style.display = 'block';
+document.addEventListener("DOMContentLoaded", function() {
+    // Mostrar "Cargando..." por 3 segundos
     setTimeout(() => {
-        document.getElementById('errorSection').style.display = 'none';
-        document.getElementById('fakeIntro').style.display = 'block';
+        document.getElementById('loadingSection').style.display = 'none';
+        document.getElementById('errorSection').style.display = 'block';
+        setTimeout(() => {
+            document.getElementById('errorSection').style.display = 'none';
+            document.getElementById('fakeIntro').style.display = 'block';
+        }, 3000);
     }, 3000);
-}, 3000);
+});
 
 function showAds() {
     document.getElementById('fakeIntro').style.display = 'none';
