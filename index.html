@@ -75,7 +75,7 @@
         <p>Gracias por ser increíble. ¡Te deseo un hermoso San Valentín! 💖</p>
         <div class="hidden-heart" onclick="revealSecretMessage()">💖</div>
         <p id="finalSecretMessage" class="hidden-message">Mi amor por ti es infinito y cada día crece más. Eres mi todo. 💘</p>
-        <button onclick="goToSection('restrictedSection')" class="btn">Regresar</button>
+        <button onclick="goToSection('restrictedSection')" class="btn">Continuar</button>
     </div>
 
     <div id="restrictedSection" class="section" style="display:none;">
@@ -84,6 +84,12 @@
         <button onclick="startMotionSensorTest()" class="btn">Sensor de Movimiento</button>
         <p id="reflexMessage" style="display:none; color:red;"></p>
         <p id="motionMessage" style="display:none; color:green;"></p>
+    </div>
+
+    <div id="restrictedSectionUnlocked" class="section" style="display:none;">
+        <h2>¡Bienvenido a la Zona Especial!</h2>
+        <p>Has demostrado tus habilidades. Disfruta de este espacio exclusivo.</p>
+        <button onclick="goToSection('thankYou')" class="btn">Regresar</button>
     </div>
 
     <div id="modal" class="modal">
