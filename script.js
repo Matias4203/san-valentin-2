@@ -172,3 +172,4 @@ async function startFaceDetection() {
 
     const video = document.getElementById('video');
     const canvas = faceapi.createCanvasFromMedia(video);
+}
