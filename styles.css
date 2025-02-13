@@ -157,4 +157,7 @@ button:active {
 .hidden-heart {
     cursor: pointer;
     display: inline-block;
-    font-size: ▋
+    font-size: 24px;
+    color: #ff6a88;
+    margin-top: 10px;
+}
