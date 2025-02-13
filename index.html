@@ -9,14 +9,14 @@
     <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api"></script>
 </head>
-<body>
+<body onload="startCountdown(); startInactivityTimer();">
 
-    <div id="errorSection" class="section" style="display:none;">
-        <h1>Error al cargar la página</h1>
-        <p>Lo sentimos, algo salió mal.</p>
+    <div id="errorSection" class="section">
+        <h1>Error 404: Página no encontrada...</h1>
+        <p>Redirigiendo en <span id="countdown">10</span> segundos...</p>
     </div>
 
-    <div id="intro" class="section">
+    <div id="intro" class="section" style="display:none;">
         <h1 id="welcomeMessage">¡Bienvenida a tu página de San Valentín! 💖</h1>
         <button onclick="goToSection('jokesSection')" class="btn">Haz clic para ver algo especial</button>
     </div>
@@ -96,6 +96,11 @@
             <button id="modalNoBtn" class="btn">No</button>
             <p id="errorMessage" style="display:none; color:red;"></p>
         </div>
+    </div>
+
+    <div id="ninjaMode" class="ninja-mode" style="display:none;">
+        <h1>No puedes ignorarme por siempre...</h1>
+        <p>¡Vuelve a interactuar conmigo! 😏</p>
     </div>
 
     <script src="script.js"></script>
