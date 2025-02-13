@@ -4,7 +4,7 @@ const secretMessages = [
     "Cada día contigo es una bendición. 🌟",
     "Eres mi sol en días nublados. ☀️"
 ];
-const correctUnlockCode = "420";
+const correctUnlockCode = "AMOR2025";
 
 document.getElementById('showMessagesBtn').addEventListener('click', function() {
     goToSection('section2');
