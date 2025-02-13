@@ -167,8 +167,3 @@ button:active {
     color: #fad0c4;
     transition: color 0.2s;
 }
-
-.hidden-code {
-    font-size: 1px;
-    color: #ff6a88;
-}
