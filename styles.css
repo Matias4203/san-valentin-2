@@ -1,7 +1,7 @@
 body, html {
     height: 100%;
     margin: 0;
-    font-family: 'Amatic SC', cursive;
+    font-family: 'Pacifico', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,6 +55,3 @@ button:hover {
 button:active {
     animation: vibrate 0.2s linear infinite;
 }
-
-@keyframes vibrate {
-    0% { transform: translateX
