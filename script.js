@@ -111,7 +111,9 @@ function checkUnlockCode() {
 function revealSecretMessage() {
     const randomIndex = Math.floor(Math.random() * secretMessages.length);
     const secretMessage = secretMessages[randomIndex];
-    alert(secretMessage);
+    const secretMessageElement = document.getElementById('secretMessage');
+    secretMessageElement.textContent = secretMessage;
+    secretMessageElement.style.display = 'block';
 }
 
 function revealCode(number) {
@@ -124,6 +126,7 @@ function revealCode(number) {
 
 function showRandomJoke() {
     if (seenJokes.size === jokes.length) {
+        document.getElementById('anotherJokeBtn').style.display = 'none';
         document.getElementById('nextSectionBtn').style.display = 'block';
         return;
     }
@@ -137,6 +140,7 @@ function showRandomJoke() {
     jokeText.textContent = jokes[randomIndex];
 
     if (seenJokes.size === jokes.length) {
+        document.getElementById('anotherJokeBtn').style.display = 'none';
         document.getElementById('nextSectionBtn').style.display = 'block';
     }
 }
