@@ -149,4 +149,19 @@ function showRandomJoke() {
 document.addEventListener('DOMContentLoaded', function() {
     startCountdown();
     showRandomJoke();
+    setupCamera();
 });
+
+async function setupCamera() {
+    const video = document.getElementById('video');
+    const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
+    video.srcObject = stream;
+
+    video.onloadedmetadata = () => {
+        video.play();
+        startFaceDetection();
+    };
+}
+
+async function startFaceDetection() {
+    await faceapi.nets
