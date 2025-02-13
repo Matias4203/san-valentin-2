@@ -1,3 +1,4 @@
+/* Estilos generales */
 body, html {
     height: 100%;
     margin: 0;
@@ -10,7 +11,6 @@ body, html {
     background-attachment: fixed;
 }
 
-/* Animación del fondo */
 @keyframes gradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -22,30 +22,35 @@ body {
     animation: gradient 15s ease infinite;
 }
 
-.container {
-    text-align: center;
-    margin: 20px;
+/* Cargador */
+.loader {
+    border: 16px solid #f3f3f3; /* Fondo gris claro */
+    border-radius: 50%; /* Hacerlo redondo */
+    border-top: 16px solid #3498db; /* Parte superior azul */
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite; /* Animación de giro */
+    display: block;
+    margin: 50px auto; /* Centrado en la página */
 }
 
-/* Animación de aparición */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estilos para las secciones */
 .section {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s forwards;
+    animation: fadeIn 2s;
+    display: none;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* Estilo de los botones */
+/* Estilos para botones */
 button {
     margin: 10px;
     padding: 10px 20px;
@@ -63,144 +68,38 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* Efecto de rebote al hacer clic en un botón */
 button:active {
-    animation: bounce 0.3s ease-in-out;
+    animation: vibrate 0.2s linear infinite;
 }
 
-@keyframes bounce {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+@keyframes vibrate {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(2px); }
+    50% { transform: translateX(0); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
 }
 
-/* Icono de cerrar */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Animación de corazones */
-.hearts {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: url('heart.png') repeat;
-    background-size: 50px 50px;
-    animation: hearts 10s linear infinite;
-}
-
-@keyframes hearts {
-    from { transform: translateY(0); }
-    to { transform: translateY(100vh); }
-}
-
-/* Mensajes ocultos que aparecen con animación */
-.hidden-message {
-    display: none;
-    animation: revealText 3s forwards;
-    opacity: 0;
-}
-
-@keyframes revealText {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Texto oculto que se revela con hover */
-.hidden-area {
-    cursor: pointer;
-    display: inline-block;
-    margin-top: 20px;
-    font-size: 24px;
-    color: transparent;
-    transition: color 0.5s ease-in-out;
-}
-
-.hidden-area:hover {
-    color: #ee0979; /* Color visible al pasar el mouse */
-}
-
-/* Estilos para el modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-}
-
-/* Efecto al pasar el mouse por el mensaje de bienvenida */
-#welcomeMessage:hover {
-    color: #ff6a88;
-    transition: color 0.5s;
-}
-
-#welcomeMessage:active {
-    color: #fad0c4;
-    transition: color 0.2s;
-}
-
-/* Corazón oculto con animación */
-.hidden-heart {
-    cursor: pointer;
-    display: inline-block;
-    font-size: 24px;
-    color: #ff6a88;
-    margin-top: 10px;
-}
-
-/* Estilos para la sección de cargando */
-.loader {
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Estilos para la sección de error */
+/* Estilos para el mensaje de error */
 #errorSection {
     color: red;
-    animation: blink 1s infinite;
+    font-size: 18px;
 }
 
-@keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
+/* Estilos para la sección de desbloqueo */
+#unlockSection {
+    margin-top: 20px;
+}
+
+#unlockCodeInput {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+#unlockErrorMessage {
+    color: red;
+    font-size: 16px;
+    display: none;
 }
