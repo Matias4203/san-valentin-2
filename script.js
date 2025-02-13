@@ -5,16 +5,9 @@ const secretMessages = [
     "Eres mi sol en días nublados. ☀️"
 ];
 const jokes = [
-    "¿Sabes por qué los pájaros no usan Facebook? Porque ya tienen Twitter.",
     "Eres como el WiFi… cuando estás cerca, todo es mejor.",
     "Si fueras un dinosaurio, serías un ‘Romasaurio’ porque me tienes loco(a).",
-    "¿Eres Google? Porque tienes todo lo que busco.",
-    "Eres tan especial que si fueras una aplicación, serías la más descargada.",
-    "¿Te duele la cara de ser tan bonito/a?",
-    "Si fueras un vegetal, serías un bonito/a.",
-    "¿Sabes qué es lo más lindo de hoy? Tú.",
-    "Eres como un diccionario, das sentido a mi vida.",
-    "¿Eres una lámpara? Porque iluminas mi día."
+    "¿Eres Google? Porque tienes todo lo que busco."
 ];
 let seenJokes = new Set();
 
