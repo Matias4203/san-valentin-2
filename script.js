@@ -4,6 +4,31 @@ const secretMessages = [
     "Cada día contigo es una bendición. 🌟",
     "Eres mi sol en días nublados. ☀️"
 ];
+const jokes = [
+    "¿Sabes por qué los pájaros no usan Facebook? Porque ya tienen Twitter.",
+    "Eres como el WiFi… cuando estás cerca, todo es mejor.",
+    "Si fueras un dinosaurio, serías un ‘Romasaurio’ porque me tienes loco(a).",
+    "¿Eres Google? Porque tienes todo lo que busco."
+];
+const triviaQuestions = [
+    {
+        question: "¿Cuál es mi color favorito?",
+        options: ["Rojo", "Azul", "Verde", "Amarillo"],
+        answer: "Azul"
+    },
+    {
+        question: "¿Cuántas veces te he dicho que me caes bien?",
+        options: ["100", "200", "300", "400"],
+        answer: "300"
+    },
+    {
+        question: "Si tuvieras que describirme en una palabra, ¿cuál sería?",
+        options: ["Guapo/a", "Inteligente", "Divertido/a", "Asombroso/a"],
+        answer: "Asombroso/a"
+    }
+];
+let currentQuestionIndex = 0;
+let score = 0;
 const correctUnlockCode = "420";
 let revealedCode = "";
 
@@ -106,6 +131,43 @@ function revealCode(number) {
     }
 }
 
+function showRandomJoke() {
+    const randomIndex = Math.floor(Math.random() * jokes.length);
+    const jokeText = document.getElementById('jokeText');
+    jokeText.textContent = jokes[randomIndex];
+}
+
+function showTriviaQuestion() {
+    if (currentQuestionIndex >= triviaQuestions.length) {
+        document.getElementById('nextSectionBtn').style.display = 'block';
+        return;
+    }
+    const question = triviaQuestions[currentQuestionIndex];
+    const triviaQuestionElement = document.getElementById('triviaQuestion');
+    const triviaOptionsElement = document.getElementById('triviaOptions');
+    triviaQuestionElement.textContent = question.question;
+    triviaOptionsElement.innerHTML = '';
+    question.options.forEach(option => {
+        const button = document.createElement('button');
+        button.className = 'btn';
+        button.textContent = option;
+        button.onclick = () => checkTriviaAnswer(option);
+        triviaOptionsElement.appendChild(button);
+    });
+}
+
+function checkTriviaAnswer(selectedOption) {
+    const question = triviaQuestions[currentQuestionIndex];
+    if (selectedOption === question.answer) {
+        score++;
+        document.getElementById('score').textContent = score;
+    }
+    currentQuestionIndex++;
+    showTriviaQuestion();
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     startCountdown();
+    showRandomJoke();
+    showTriviaQuestion();
 });
