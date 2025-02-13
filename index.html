@@ -16,7 +16,22 @@
 
     <div id="intro" class="section" style="display:none;">
         <h1 id="welcomeMessage">¡Bienvenida a tu página de San Valentín! 💖</h1>
-        <button onclick="goToSection('section1')" class="btn">Haz clic para ver algo especial</button>
+        <button onclick="goToSection('jokesSection')" class="btn">Haz clic para ver algo especial</button>
+    </div>
+
+    <div id="jokesSection" class="section" style="display:none;">
+        <h1>Bromas</h1>
+        <p id="jokeText"></p>
+        <button onclick="showRandomJoke()" class="btn">Otra broma</button>
+        <button onclick="goToSection('triviaSection')" class="btn">Ya, quiero seguir</button>
+    </div>
+
+    <div id="triviaSection" class="section" style="display:none;">
+        <h1>Trivia</h1>
+        <div id="triviaQuestion"></div>
+        <div id="triviaOptions"></div>
+        <p>Puntos: <span id="score">0</span></p>
+        <button onclick="goToSection('section1')" class="btn" style="display:none;" id="nextSectionBtn">Siguiente</button>
     </div>
 
     <div id="section1" class="section" style="display:none;">
