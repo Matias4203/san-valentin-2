@@ -161,3 +161,14 @@ button:active {
     color: #ff6a88;
     margin-top: 10px;
 }
+
+.ar-message {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    display: none;
+}
