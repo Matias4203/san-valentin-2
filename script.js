@@ -1,4 +1,11 @@
 let attempts = 0;
+const secretMessages = [
+    "El amor es la clave de todo. 💖",
+    "Cada día contigo es una bendición. 🌟",
+    "Eres mi sol en días nublados. ☀️"
+];
+const correctUnlockCode = "420";
+let revealedCode = "";
 
 document.getElementById('showMessagesBtn').addEventListener('click', function() {
     goToSection('section2');
@@ -66,50 +73,39 @@ function startCountdown() {
         countdownElement.textContent = countdown;
         if (countdown === 0) {
             clearInterval(interval);
-            goToSection('fakeIntro');
+            goToSection('intro');
         }
     }, 1000);
 }
 
-function showAds() {
-    attempts++;
-    if (attempts >= 3) {
-        goToSection('intro');
+function showUnlockCode() {
+    goToSection('unlockSection');
+}
+
+function checkUnlockCode() {
+    const inputCode = document.getElementById('unlockCodeInput').value;
+    const unlockErrorMessage = document.getElementById('unlockErrorMessage');
+    if (inputCode === correctUnlockCode) {
+        goToSection('finalSurprise');
     } else {
-        goToSection('adSection');
+        unlockErrorMessage.style.display = 'block';
     }
 }
 
-function showFakeError() {
-    alert("Error: No se puede cargar el contenido.");
-    goToSection('fakeIntro');
+function revealSecretMessage() {
+    const randomIndex = Math.floor(Math.random() * secretMessages.length);
+    const secretMessage = secretMessages[randomIndex];
+    alert(secretMessage);
+}
+
+function revealCode(number) {
+    revealedCode += number;
+    alert(`Parte del código revelado: ${number}`);
+    if (revealedCode.length === 3) {
+        alert(`Código completo revelado: ${revealedCode}`);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const hiddenMessage = document.querySelector('.hidden-message');
-    const hiddenArea = document.getElementById('hiddenArea');
-    const finalHiddenArea = document.getElementById('finalHiddenArea');
-    const finalSecretMessage = document.getElementById('finalSecretMessage');
-    
-    hiddenArea.addEventListener('mouseover', function() {
-        hiddenMessage.style.display = 'block';
-        hiddenMessage.style.opacity = '1';
-    });
-
-    hiddenArea.addEventListener('touchstart', function() {
-        hiddenMessage.style.display = 'block';
-        hiddenMessage.style.opacity = '1';
-    });
-
-    finalHiddenArea.addEventListener('mouseover', function() {
-        finalSecretMessage.style.display = 'block';
-        finalSecretMessage.style.opacity = '1';
-    });
-
-    finalHiddenArea.addEventListener('touchstart', function() {
-        finalSecretMessage.style.display = 'block';
-        finalSecretMessage.style.opacity = '1';
-    });
-
     startCountdown();
 });
