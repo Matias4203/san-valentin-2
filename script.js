@@ -5,9 +5,21 @@ const secretMessages = [
     "Eres mi sol en días nublados. ☀️"
 ];
 const jokes = [
-    "Eres como el WiFi… cuando estás cerca, todo es mejor.",
-    "Si fueras un dinosaurio, serías un ‘Romasaurio’ porque me tienes loco(a).",
-    "¿Eres Google? Porque tienes todo lo que busco."
+    "Feliz San Valentín… o como yo lo llamo: ‘otro día más en el que te aguanto’.",
+    "Dicen que el amor es ciego, pero lo nuestro ya es ceguera total.",
+    "Eres mi persona favorita… para molestar todos los días.",
+    "En este 14 de febrero, quiero agradecerte por siempre estar ahí… aunque a veces desaparezcas más rápido que mi dinero.",
+    "Hoy es el día del amor y la amistad… pero como lo tuyo conmigo es más dudas existenciales, dejémoslo en ‘feliz día’ nomás.",
+    "Dicen que en San Valentín hay que regalar chocolates… así que dime, ¿me los vas a dar tú o los compro yo y me los como solo?",
+    "Feliz día de la amistad… o lo que sea que tengamos. 🤨",
+    "Si el amor entra por el estómago, entonces creo que mi amor por la comida sigue ganando.",
+    "Prometo no hacerte enojar hoy… bueno, al menos hasta después de comer.",
+    "No necesito regalo de San Valentín… con que no me ignores, ya me doy por bien servido.",
+    "Si cobrara por cada vez que me ignoras, ya tendría para comprarme otra moto… y no te invitaría a dar la vuelta 😌",
+    "Si fuera por mí, te haría un monumento… pero el cemento está caro, así que mejor te compro unas papitas.",
+    "Feliz 14 de febrero, oficialmente el único día del año en que no te voy a molestar… ok, mentira, ya sabes que eso no es posible.",
+    "Dicen que el amor es dar sin esperar nada a cambio… así que dame chocolate y no esperes que te comparta.",
+    "Si el 14 de febrero es de los enamorados y el 15 de los solteros… ¿qué día es para los que estamos en una relación de 'a ver qué pasa'?"
 ];
 let seenJokes = new Set();
 
