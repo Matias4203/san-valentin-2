@@ -1,7 +1,7 @@
 body, html {
     height: 100%;
     margin: 0;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,5 +57,4 @@ button:active {
 }
 
 @keyframes vibrate {
-    0% { transform: translateX(0); }
-    25
+    0% { transform: translateX(0);
