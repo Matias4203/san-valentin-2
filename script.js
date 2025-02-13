@@ -23,6 +23,8 @@ const jokes = [
 ];
 let seenJokes = new Set();
 let revealedCode = "";
+let reflexAttempts = 0;
+let motionUnlocked = false;
 
 document.getElementById('showMessagesBtn').addEventListener('click', function() {
     goToSection('section2');
@@ -99,6 +101,62 @@ function startCountdown() {
             `;
         }
     }, 1000);
+}
+
+function startReflexTest() {
+    reflexAttempts = 0;
+    showReflexButton();
+}
+
+function showReflexButton() {
+    const reflexMessage = document.getElementById('reflexMessage');
+    reflexMessage.style.display = 'none';
+    const button = document.createElement('button');
+    button.textContent = '¡Tócame!';
+    button.className = 'btn reflex-btn';
+    button.style.position = 'absolute';
+    button.style.top = `${Math.random() * 80 + 10}%`;
+    button.style.left = `${Math.random() * 80 + 10}%`;
+    button.onclick = () => {
+        document.body.removeChild(button);
+        reflexAttempts++;
+        if (reflexAttempts >= 3) {
+            reflexMessage.textContent = '¡Buena! Tienes buenos reflejos. Bienvenido.';
+            reflexMessage.style.color = 'green';
+            reflexMessage.style.display = 'block';
+            goToSection('restrictedSectionUnlocked');
+        } else {
+            showReflexButton();
+        }
+    };
+    document.body.appendChild(button);
+    setTimeout(() => {
+        if (document.body.contains(button)) {
+            document.body.removeChild(button);
+            reflexMessage.textContent = 'Tus reflejos no son lo suficientemente rápidos. Inténtalo de nuevo.';
+            reflexMessage.style.color = 'red';
+            reflexMessage.style.display = 'block';
+        }
+    }, 1000);
+}
+
+function startMotionSensorTest() {
+    if (window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientation', handleOrientation);
+    } else {
+        alert("Tu dispositivo no soporta el sensor de movimiento.");
+    }
+}
+
+function handleOrientation(event) {
+    const motionMessage = document.getElementById('motionMessage');
+    const gamma = event.gamma; // Incline left to right
+    if (gamma > 30 || gamma < -30) { // Adjust the threshold as needed
+        motionMessage.textContent = 'Bien, tienes la clave del movimiento. Bienvenido.';
+        motionMessage.style.display = 'block';
+        window.removeEventListener('deviceorientation', handleOrientation);
+        goToSection('restrictedSectionUnlocked');
+    }
 }
 
 function showUnlockCode() {
