@@ -1,125 +1,148 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Mostrar "Cargando..." por 3 segundos y luego pasar a la introducción
-    setTimeout(() => {
-        document.getElementById('loadingSection').style.display = 'none';
-        document.getElementById('intro').style.display = 'block';
-    }, 3000);
+let attempts = 0;
+const secretMessages = [
+    "El amor es la clave de todo. 💖",
+    "Cada día contigo es una bendición. 🌟",
+    "Eres mi sol en días nublados. ☀️"
+];
+const correctUnlockCode = "420";
 
-    // Temporizador de redirección en la sección de error
-    let countdown = 10;
-    const countdownElement = document.getElementById('countdown');
-    const countdownInterval = setInterval(() => {
-        countdown--;
-        countdownElement.textContent = countdown;
-        if (countdown <= 0) {
-            clearInterval(countdownInterval);
-            goToSection('intro');
-        }
-    }, 1000);
+document.getElementById('showMessagesBtn').addEventListener('click', function() {
+    goToSection('section2');
+    showHearts();
+    localStorage.setItem('agreedToSeeMessage', 'true');
+});
+
+document.getElementById('showExtraMessagesBtn').addEventListener('click', function() {
+    showModal();
+});
+
+document.getElementById('modalYesBtn').addEventListener('click', function() {
+    displayErrorMessage();
+    closeModal();
+    setTimeout(() => {
+        goToSection('section2');
+        showHearts();
+        localStorage.setItem('agreedToSeeMessage', 'true');
+    }, 100); // Small delay to show the error message
+});
+
+document.getElementById('modalNoBtn').addEventListener('click', function() {
+    closeModal();
+    setTimeout(showModal, 100); // Small delay to prevent modal flicker
 });
 
 function goToSection(sectionId) {
-    document.querySelectorAll('.section').forEach(section => {
-        section.style.display = 'none';
-    });
+    const sections = document.getElementsByClassName('section');
+    for (let i = 0; i < sections.length; i++) {
+        sections[i].style.display = 'none';
+    }
     document.getElementById(sectionId).style.display = 'block';
 }
 
 function closeModal() {
-    document.getElementById('modal').style.display = 'none';
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+}
+
+function showModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'flex';
+}
+
+function showHearts() {
+    const hearts = document.createElement('div');
+    hearts.className = 'hearts';
+    document.body.appendChild(hearts);
+    setTimeout(() => {
+        document.body.removeChild(hearts);
+    }, 5000);
+}
+
+function displayErrorMessage() {
+    const errorMessage = document.getElementById('errorMessage');
+    errorMessage.style.display = 'block';
+    errorMessage.innerText = 'ERROR AL MOSTRAR EL MENSAJE';
+}
+
+function startCountdown() {
+    let countdown = 10;
+    const countdownElement = document.getElementById('countdown');
+    const interval = setInterval(() => {
+        countdown--;
+        countdownElement.textContent = countdown;
+        if (countdown === 0) {
+            clearInterval(interval);
+            goToSection('fakeIntro');
+        }
+    }, 1000);
+}
+
+function showAds() {
+    attempts++;
+    if (attempts >= 3) {
+        goToSection('intro');
+    } else {
+        goToSection('adSection');
+    }
+}
+
+function showFakeError() {
+    alert("Error: No se puede cargar el contenido.");
+    goToSection('fakeIntro');
 }
 
 function showUnlockCode() {
-    document.getElementById('unlockSection').style.display = 'block';
+    goToSection('unlockSection');
 }
 
 function checkUnlockCode() {
-    const code = document.getElementById('unlockCodeInput').value;
-    if (code === 'amor2025') {
-        document.getElementById('unlockSection').style.display = 'none';
-        document.getElementById('finalSection').style.display = 'block';
+    const inputCode = document.getElementById('unlockCodeInput').value;
+    const unlockErrorMessage = document.getElementById('unlockErrorMessage');
+    if (inputCode === correctUnlockCode) {
+        goToSection('finalSurprise');
     } else {
-        document.getElementById('unlockErrorMessage').style.display = 'block';
+        unlockErrorMessage.style.display = 'block';
     }
 }
 
-// Array de bromas
-const jokes = [
-    "¿Por qué los pájaros no usan Facebook? Porque ya tienen Twitter.",
-    "¿Qué hace una abeja en el gimnasio? ¡Zum-ba!",
-    "¿Qué le dice una iguana a su hermana gemela? Somos iguanitas."
-];
-
-function showRandomJoke() {
-    const jokeText = document.getElementById('jokeText');
-    const randomIndex = Math.floor(Math.random() * jokes.length);
-    jokeText.textContent = jokes[randomIndex];
+function revealSecretMessage() {
+    const randomIndex = Math.floor(Math.random() * secretMessages.length);
+    const secretMessage = secretMessages[randomIndex];
+    alert(secretMessage);
 }
 
-// Array de preguntas y respuestas
-const questions = [
-    {
-        question: "¿Cuál es mi color favorito?",
-        options: ["Rojo", "Azul", "Verde"],
-        correctAnswer: "Azul"
-    },
-    {
-        question: "¿Cuántas veces te he dicho que me caes bien?",
-        options: ["Muchas", "Pocas", "Nunca"],
-        correctAnswer: "Muchas"
-    },
-    {
-        question: "Si tuvieras que describirme en una palabra, ¿cuál sería?",
-        options: ["Increíble", "Genial", "Impresionante"],
-        correctAnswer: "Increíble"
-    }
-];
+document.addEventListener('DOMContentLoaded', function() {
+    const hiddenMessage = document.querySelector('.hidden-message');
+    const hiddenArea = document.getElementById('hiddenArea');
+    const finalHiddenArea = document.getElementById('finalHiddenArea');
+    const finalSecretMessage = document.getElementById('finalSecretMessage');
 
-let score = 0;
-let currentQuestionIndex = 0;
+    hiddenArea.addEventListener('click', revealSecretMessage);
+    finalHiddenArea.addEventListener('click', revealSecretMessage);
 
-function showQuestion() {
-    const questionText = document.getElementById('questionText');
-    const optionsContainer = document.getElementById('optionsContainer');
-    optionsContainer.innerHTML = '';
-
-    const currentQuestion = questions[currentQuestionIndex];
-    questionText.textContent = currentQuestion.question;
-
-    currentQuestion.options.forEach(option => {
-        const button = document.createElement('button');
-        button.textContent = option;
-        button.classList.add('btn');
-        button.onclick = () => checkAnswer(option);
-        optionsContainer.appendChild(button);
+    hiddenArea.addEventListener('mouseover', function() {
+        hiddenMessage.style.display = 'block';
+        hiddenMessage.style.opacity = '1';
     });
-}
 
-function checkAnswer(selectedOption) {
-    const currentQuestion = questions[currentQuestionIndex];
-    if (selectedOption === currentQuestion.correctAnswer) {
-        score++;
-    }
+    hiddenArea.addEventListener('touchstart', function() {
+        hiddenMessage.style.display = 'block';
+        hiddenMessage.style.opacity = '1';
+    });
 
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
-    } else {
-        goToSection('messagesSection');
-    }
+    finalHiddenArea.addEventListener('mouseover', function() {
+        finalSecretMessage.style.display = 'block';
+        finalSecretMessage.style.opacity = '1';
+    });
 
-    document.getElementById('score').textContent = score;
-}
+    finalHiddenArea.addEventListener('touchstart', function() {
+        finalSecretMessage.style.display = 'block';
+        finalSecretMessage.style.opacity = '1';
+    });
 
-// Mensajes secretos
-const messages = [
-    "Eres mi razón de ser.",
-    "Contigo, todo es mejor.",
-    "Eres la persona más especial de mi vida."
-];
-
-function revealMessage(element) {
-    const randomIndex = Math.floor(Math.random() * messages.length);
-    element.textContent = messages[randomIndex];
-    element.style.pointerEvents = 'none';
-}
+    setTimeout(() => {
+        document.getElementById('loadingSection').style.display = 'none';
+        goToSection('errorSection');
+        startCountdown();
+    }, 5000);
+});
