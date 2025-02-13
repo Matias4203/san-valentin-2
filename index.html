@@ -9,42 +9,35 @@
 </head>
 <body>
 
-    <!-- Sección de Carga -->
     <div id="loadingSection" class="section">
         <h1>Cargando...</h1>
         <div class="loader"></div>
     </div>
 
-    <!-- Sección de Error -->
     <div id="errorSection" class="section" style="display:none;">
         <h1>Error al cargar la página</h1>
         <p>Lo sentimos, algo salió mal. Redirigiendo en <span id="countdown">10</span> segundos...</p>
     </div>
 
-    <!-- Introducción -->
     <div id="intro" class="section" style="display:none;">
         <h1 id="welcomeMessage">¡Bienvenida a tu página de San Valentín! 💖</h1>
         <button onclick="goToSection('jokesSection')" class="btn">Haz clic para comenzar</button>
     </div>
 
-    <!-- Sección de Bromas -->
     <div id="jokesSection" class="section" style="display:none;">
         <h1>Bromas</h1>
-        <p id="jokeText" class="joke-text"></p>
+        <p id="jokeText"></p>
         <button onclick="showRandomJoke()" class="btn">Otra broma</button>
         <button onclick="goToSection('gameSection')" class="btn">Ya, quiero seguir</button>
     </div>
 
-    <!-- Sección de Trivia -->
     <div id="gameSection" class="section" style="display:none;">
         <h1>Trivia</h1>
         <p id="questionText"></p>
         <div id="optionsContainer"></div>
         <p>Puntos: <span id="score">0</span></p>
-        <button onclick="nextQuestion()" class="btn">Siguiente Pregunta</button>
     </div>
 
-    <!-- Sección de Mensajes Secretos -->
     <div id="messagesSection" class="section" style="display:none;">
         <h2>Mensajes Secretos</h2>
         <div id="heartsContainer">
@@ -52,17 +45,24 @@
             <div class="hidden-heart" onclick="revealMessage(this)">💖</div>
             <div class="hidden-heart" onclick="revealMessage(this)">💖</div>
         </div>
-        <button onclick="goToSection('finalSection')" class="btn">Siguiente</button>
+        <button onclick="goToSection('unlockSection')" class="btn">Desbloquear Sorpresa</button>
     </div>
 
-    <!-- Sección Final -->
+    <div id="unlockSection" class="section" style="display:none;">
+        <h2>Desbloquear Sorpresa</h2>
+        <p>Introduce el código de desbloqueo para continuar:</p>
+        <input type="text" id="unlockCodeInput" placeholder="Código de Desbloqueo">
+        <button onclick="checkUnlockCode()" class="btn">Desbloquear</button>
+        <p id="unlockErrorMessage" style="color:red; display:none;">Código incorrecto. Intenta nuevamente.</p>
+        <button onclick="goToSection('messagesSection')" class="btn">Regresar</button>
+    </div>
+
     <div id="finalSection" class="section" style="display:none;">
         <h2>Mi confesión más sincera</h2>
         <p>Desde que te conocí, supe que eras alguien especial. Quiero que sepas que eres la persona más importante para mí y que cada momento contigo es un tesoro. Te amo más de lo que las palabras pueden expresar.</p>
         <button onclick="goToSection('thankYouSection')" class="btn">Finalizar</button>
     </div>
 
-    <!-- Sección de Agradecimiento -->
     <div id="thankYouSection" class="section" style="display:none;">
         <p>Gracias por ser increíble. ¡Te deseo un hermoso San Valentín! 💖</p>
         <button onclick="goToSection('finalSection')" class="btn">Regresar</button>
