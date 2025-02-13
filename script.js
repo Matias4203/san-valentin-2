@@ -22,6 +22,7 @@ const jokes = [
     "Si el 14 de febrero es de los enamorados y el 15 de los solteros… ¿qué día es para los que estamos en una relación de 'a ver qué pasa'?"
 ];
 let seenJokes = new Set();
+let revealedCode = "";
 
 document.getElementById('showMessagesBtn').addEventListener('click', function() {
     goToSection('section2');
@@ -101,7 +102,7 @@ function showUnlockCode() {
 function checkUnlockCode() {
     const inputCode = document.getElementById('unlockCodeInput').value;
     const unlockErrorMessage = document.getElementById('unlockErrorMessage');
-    if (inputCode === correctUnlockCode) {
+    if (inputCode === revealedCode) {
         goToSection('finalSurprise');
     } else {
         unlockErrorMessage.style.display = 'block';
