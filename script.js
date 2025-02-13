@@ -23,7 +23,6 @@ const jokes = [
 ];
 let seenJokes = new Set();
 let revealedCode = "";
-let inactivityTime = 0;
 
 document.getElementById('showMessagesBtn').addEventListener('click', function() {
     goToSection('section2');
@@ -98,28 +97,6 @@ function startCountdown() {
                 <h1>Tranquilo, no te vas a librar de mí tan fácil. Ya me tienes aquí 😏</h1>
                 <button class="btn" onclick="goToSection('intro')">Continuar</button>
             `;
-        }
-    }, 1000);
-}
-
-function startInactivityTimer() {
-    document.addEventListener('mousemove', resetInactivityTimer);
-    document.addEventListener('keypress', resetInactivityTimer);
-    document.addEventListener('click', resetInactivityTimer);
-    document.addEventListener('touchstart', resetInactivityTimer);
-
-    function resetInactivityTimer() {
-        inactivityTime = 0;
-        const ninjaMode = document.getElementById('ninjaMode');
-        if (ninjaMode.style.display === 'block') {
-            ninjaMode.style.display = 'none';
-        }
-    }
-
-    setInterval(() => {
-        inactivityTime++;
-        if (inactivityTime >= 30) { // 30 seconds of inactivity
-            document.getElementById('ninjaMode').style.display = 'block';
         }
     }, 1000);
 }
