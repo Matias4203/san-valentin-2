@@ -1,34 +1,45 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Temporizador de redirección en la sección de error
-    const countdownElement = document.getElementById('countdown');
-    if (countdownElement) {
-        let countdown = 10;
-        const countdownInterval = setInterval(() => {
-            countdown--;
-            countdownElement.textContent = countdown;
-            if (countdown <= 0) {
-                clearInterval(countdownInterval);
-                goToSection('intro');
-            }
-        }, 1000);
-    }
-
-    // Mostrar la primera sección (loading -> intro)
+    // Mostrar "Cargando..." por 3 segundos y luego pasar a la introducción
     setTimeout(() => {
-        goToSection('intro');
-    }, 2000); // Simula carga de 2 segundos
+        document.getElementById('loadingSection').style.display = 'none';
+        document.getElementById('intro').style.display = 'block';
+    }, 3000);
+
+    // Temporizador de redirección en la sección de error
+    let countdown = 10;
+    const countdownElement = document.getElementById('countdown');
+    const countdownInterval = setInterval(() => {
+        countdown--;
+        countdownElement.textContent = countdown;
+        if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            goToSection('intro');
+        }
+    }, 1000);
 });
 
-// Función para cambiar de sección con animación
 function goToSection(sectionId) {
     document.querySelectorAll('.section').forEach(section => {
         section.style.display = 'none';
     });
+    document.getElementById(sectionId).style.display = 'block';
+}
 
-    const newSection = document.getElementById(sectionId);
-    if (newSection) {
-        newSection.style.display = 'block';
-        newSection.classList.add('fade-in'); // Agrega una clase para animación
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+
+function showUnlockCode() {
+    document.getElementById('unlockSection').style.display = 'block';
+}
+
+function checkUnlockCode() {
+    const code = document.getElementById('unlockCodeInput').value;
+    if (code === 'amor2025') {
+        document.getElementById('unlockSection').style.display = 'none';
+        document.getElementById('finalSection').style.display = 'block';
+    } else {
+        document.getElementById('unlockErrorMessage').style.display = 'block';
     }
 }
 
@@ -36,23 +47,16 @@ function goToSection(sectionId) {
 const jokes = [
     "¿Por qué los pájaros no usan Facebook? Porque ya tienen Twitter.",
     "¿Qué hace una abeja en el gimnasio? ¡Zum-ba!",
-    "¿Qué le dice una iguana a su hermana gemela? Somos iguanitas.",
-    "¿Por qué el libro de matemáticas estaba triste? Porque tenía demasiados problemas.",
-    "¿Cómo se despiden las células? ¡Hasta la mitosis!"
+    "¿Qué le dice una iguana a su hermana gemela? Somos iguanitas."
 ];
 
 function showRandomJoke() {
     const jokeText = document.getElementById('jokeText');
     const randomIndex = Math.floor(Math.random() * jokes.length);
-
-    jokeText.classList.remove('fade-in');
-    setTimeout(() => {
-        jokeText.textContent = jokes[randomIndex];
-        jokeText.classList.add('fade-in');
-    }, 200);
+    jokeText.textContent = jokes[randomIndex];
 }
 
-// Preguntas y respuestas para la trivia
+// Array de preguntas y respuestas
 const questions = [
     {
         question: "¿Cuál es mi color favorito?",
@@ -75,14 +79,9 @@ let score = 0;
 let currentQuestionIndex = 0;
 
 function showQuestion() {
-    if (currentQuestionIndex >= questions.length) {
-        goToSection('messagesSection');
-        return;
-    }
-
     const questionText = document.getElementById('questionText');
     const optionsContainer = document.getElementById('optionsContainer');
-    optionsContainer.innerHTML = ''; // Limpiar opciones anteriores
+    optionsContainer.innerHTML = '';
 
     const currentQuestion = questions[currentQuestionIndex];
     questionText.textContent = currentQuestion.question;
@@ -91,27 +90,23 @@ function showQuestion() {
         const button = document.createElement('button');
         button.textContent = option;
         button.classList.add('btn');
-        button.onclick = () => checkAnswer(option, button);
+        button.onclick = () => checkAnswer(option);
         optionsContainer.appendChild(button);
     });
 }
 
-function checkAnswer(selectedOption, button) {
+function checkAnswer(selectedOption) {
     const currentQuestion = questions[currentQuestionIndex];
-
-    // Deshabilita los botones para evitar clics repetidos
-    document.querySelectorAll('#optionsContainer .btn').forEach(btn => {
-        btn.disabled = true;
-    });
-
     if (selectedOption === currentQuestion.correctAnswer) {
         score++;
     }
 
-    setTimeout(() => {
-        currentQuestionIndex++;
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
         showQuestion();
-    }, 500);
+    } else {
+        goToSection('messagesSection');
+    }
 
     document.getElementById('score').textContent = score;
 }
@@ -120,29 +115,11 @@ function checkAnswer(selectedOption, button) {
 const messages = [
     "Eres mi razón de ser.",
     "Contigo, todo es mejor.",
-    "Eres la persona más especial de mi vida.",
-    "Cada día contigo es una bendición.",
-    "No imagino mi vida sin ti."
+    "Eres la persona más especial de mi vida."
 ];
 
 function revealMessage(element) {
-    if (messages.length === 0) return;
-    
     const randomIndex = Math.floor(Math.random() * messages.length);
     element.textContent = messages[randomIndex];
-    element.classList.add('revealed'); // Agrega una clase para efecto visual
-
-    // Elimina el mensaje del array para que no se repita
-    messages.splice(randomIndex, 1);
-}
-
-// Código de desbloqueo para la sorpresa final
-function checkUnlockCode() {
-    const code = document.getElementById('unlockCodeInput').value;
-    if (code === 'amor2025') {
-        document.getElementById('unlockSection').style.display = 'none';
-        document.getElementById('finalSurprise').style.display = 'block';
-    } else {
-        document.getElementById('unlockErrorMessage').style.display = 'block';
-    }
+    element.style.pointerEvents = 'none';
 }
