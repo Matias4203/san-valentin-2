@@ -91,6 +91,7 @@ function startCountdown() {
         if (countdown === 0) {
             clearInterval(interval);
             goToSection('intro');
+            document.getElementById('errorSection').style.display = 'none';
         }
     }, 1000);
 }
@@ -170,4 +171,4 @@ async function startFaceDetection() {
     await faceapi.nets.faceExpressionNet.loadFromUri('/models');
 
     const video = document.getElementById('video');
-    const canvas =
+    const canvas = faceapi.createCanvasFromMedia(video);
