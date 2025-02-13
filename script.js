@@ -8,29 +8,15 @@ const jokes = [
     "¿Sabes por qué los pájaros no usan Facebook? Porque ya tienen Twitter.",
     "Eres como el WiFi… cuando estás cerca, todo es mejor.",
     "Si fueras un dinosaurio, serías un ‘Romasaurio’ porque me tienes loco(a).",
-    "¿Eres Google? Porque tienes todo lo que busco."
+    "¿Eres Google? Porque tienes todo lo que busco.",
+    "Eres tan especial que si fueras una aplicación, serías la más descargada.",
+    "¿Te duele la cara de ser tan bonito/a?",
+    "Si fueras un vegetal, serías un bonito/a.",
+    "¿Sabes qué es lo más lindo de hoy? Tú.",
+    "Eres como un diccionario, das sentido a mi vida.",
+    "¿Eres una lámpara? Porque iluminas mi día."
 ];
-const triviaQuestions = [
-    {
-        question: "¿Cuál es mi color favorito?",
-        options: ["Rojo", "Azul", "Verde", "Amarillo"],
-        answer: "Azul"
-    },
-    {
-        question: "¿Cuántas veces te he dicho que me caes bien?",
-        options: ["100", "200", "300", "400"],
-        answer: "300"
-    },
-    {
-        question: "Si tuvieras que describirme en una palabra, ¿cuál sería?",
-        options: ["Guapo/a", "Inteligente", "Divertido/a", "Asombroso/a"],
-        answer: "Asombroso/a"
-    }
-];
-let currentQuestionIndex = 0;
-let score = 0;
-const correctUnlockCode = "420";
-let revealedCode = "";
+let seenJokes = new Set();
 
 document.getElementById('showMessagesBtn').addEventListener('click', function() {
     goToSection('section2');
@@ -132,42 +118,25 @@ function revealCode(number) {
 }
 
 function showRandomJoke() {
-    const randomIndex = Math.floor(Math.random() * jokes.length);
-    const jokeText = document.getElementById('jokeText');
-    jokeText.textContent = jokes[randomIndex];
-}
-
-function showTriviaQuestion() {
-    if (currentQuestionIndex >= triviaQuestions.length) {
+    if (seenJokes.size === jokes.length) {
         document.getElementById('nextSectionBtn').style.display = 'block';
         return;
     }
-    const question = triviaQuestions[currentQuestionIndex];
-    const triviaQuestionElement = document.getElementById('triviaQuestion');
-    const triviaOptionsElement = document.getElementById('triviaOptions');
-    triviaQuestionElement.textContent = question.question;
-    triviaOptionsElement.innerHTML = '';
-    question.options.forEach(option => {
-        const button = document.createElement('button');
-        button.className = 'btn';
-        button.textContent = option;
-        button.onclick = () => checkTriviaAnswer(option);
-        triviaOptionsElement.appendChild(button);
-    });
-}
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * jokes.length);
+    } while (seenJokes.has(randomIndex));
+    seenJokes.add(randomIndex);
 
-function checkTriviaAnswer(selectedOption) {
-    const question = triviaQuestions[currentQuestionIndex];
-    if (selectedOption === question.answer) {
-        score++;
-        document.getElementById('score').textContent = score;
+    const jokeText = document.getElementById('jokeText');
+    jokeText.textContent = jokes[randomIndex];
+
+    if (seenJokes.size === jokes.length) {
+        document.getElementById('nextSectionBtn').style.display = 'block';
     }
-    currentQuestionIndex++;
-    showTriviaQuestion();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     startCountdown();
     showRandomJoke();
-    showTriviaQuestion();
 });
