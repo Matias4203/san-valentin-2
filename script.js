@@ -55,9 +55,6 @@ function goToSection(sectionId) {
         sections[i].style.display = 'none';
     }
     document.getElementById(sectionId).style.display = 'block';
-    if (sectionId === 'errorSection') {
-        startCountdown();
-    }
 }
 
 function closeModal() {
@@ -83,20 +80,6 @@ function displayErrorMessage() {
     const errorMessage = document.getElementById('errorMessage');
     errorMessage.style.display = 'block';
     errorMessage.innerText = 'ERROR AL MOSTRAR EL MENSAJE';
-}
-
-function startCountdown() {
-    let countdown = 10;
-    const countdownElement = document.getElementById('countdown');
-    const interval = setInterval(() => {
-        countdown--;
-        countdownElement.textContent = countdown;
-        if (countdown === 0) {
-            clearInterval(interval);
-            goToSection('intro');
-            document.getElementById('errorSection').style.display = 'none';
-        }
-    }, 1000);
 }
 
 function showUnlockCode() {
