@@ -1,10 +1,4 @@
 let attempts = 0;
-const secretMessages = [
-    "El amor es la clave de todo. 💖",
-    "Cada día contigo es una bendición. 🌟",
-    "Eres mi sol en días nublados. ☀️"
-];
-const correctUnlockCode = "AMOR2025";
 
 document.getElementById('showMessagesBtn').addEventListener('click', function() {
     goToSection('section2');
@@ -91,35 +85,12 @@ function showFakeError() {
     goToSection('fakeIntro');
 }
 
-function showUnlockCode() {
-    goToSection('unlockSection');
-}
-
-function checkUnlockCode() {
-    const inputCode = document.getElementById('unlockCodeInput').value;
-    const unlockErrorMessage = document.getElementById('unlockErrorMessage');
-    if (inputCode === correctUnlockCode) {
-        goToSection('finalSurprise');
-    } else {
-        unlockErrorMessage.style.display = 'block';
-    }
-}
-
-function revealSecretMessage() {
-    const randomIndex = Math.floor(Math.random() * secretMessages.length);
-    const secretMessage = secretMessages[randomIndex];
-    alert(secretMessage);
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     const hiddenMessage = document.querySelector('.hidden-message');
     const hiddenArea = document.getElementById('hiddenArea');
     const finalHiddenArea = document.getElementById('finalHiddenArea');
     const finalSecretMessage = document.getElementById('finalSecretMessage');
-
-    hiddenArea.addEventListener('click', revealSecretMessage);
-    finalHiddenArea.addEventListener('click', revealSecretMessage);
-
+    
     hiddenArea.addEventListener('mouseover', function() {
         hiddenMessage.style.display = 'block';
         hiddenMessage.style.opacity = '1';
@@ -140,9 +111,5 @@ document.addEventListener('DOMContentLoaded', function() {
         finalSecretMessage.style.opacity = '1';
     });
 
-    setTimeout(() => {
-        document.getElementById('loadingSection').style.display = 'none';
-        goToSection('errorSection');
-        startCountdown();
-    }, 5000);
+    startCountdown();
 });
