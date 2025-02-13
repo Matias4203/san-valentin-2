@@ -119,4 +119,6 @@ button:active {
     color: initial;
 }
 
-.modal
+.modal {
+    display: none;
+   
