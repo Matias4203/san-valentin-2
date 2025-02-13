@@ -19,33 +19,48 @@
         <p>Lo sentimos, algo salió mal. Redirigiendo en <span id="countdown">10</span> segundos...</p>
     </div>
 
+    <div id="fakeIntro" class="section" style="display:none;">
+        <h1>Página en Mantenimiento</h1>
+        <p>Estamos realizando mejoras en el sitio. Por favor, intenta nuevamente más tarde.</p>
+        <button onclick="showAds()" class="btn">Intentar de nuevo</button>
+    </div>
+
+    <div id="adSection" class="section" style="display:none;">
+        <h1>Anuncio</h1>
+        <p>Anuncio falso. Haga clic para continuar.</p>
+        <button onclick="showFakeError()" class="btn">Continuar</button>
+    </div>
+
     <div id="intro" class="section" style="display:none;">
         <h1 id="welcomeMessage">¡Bienvenida a tu página de San Valentín! 💖</h1>
-        <button onclick="goToSection('jokesSection')" class="btn">Haz clic para comenzar</button>
+        <button onclick="goToSection('section1')" class="btn">Haz clic para ver algo especial</button>
     </div>
 
-    <div id="jokesSection" class="section" style="display:none;">
-        <h1>Bromas</h1>
-        <p id="jokeText"></p>
-        <button onclick="showRandomJoke()" class="btn">Otra broma</button>
-        <button onclick="goToSection('gameSection')" class="btn">Ya, quiero seguir</button>
+    <div id="section1" class="section" style="display:none;">
+        <h1>¡Feliz San Valentín!</h1>
+        <p>¿Quieres ver un mensaje?</p>
+        <button id="showMessagesBtn" class="btn">Sí</button>
+        <button id="showExtraMessagesBtn" class="btn">No</button>
+        <button onclick="goToSection('intro')" class="btn">Regresar</button>
+        <div class="hidden-code">4</div>
     </div>
 
-    <div id="gameSection" class="section" style="display:none;">
-        <h1>Trivia</h1>
-        <p id="questionText"></p>
-        <div id="optionsContainer"></div>
-        <p>Puntos: <span id="score">0</span></p>
+    <div id="section2" class="section" style="display:none;">
+        <h2>Eres mi persona especial</h2>
+        <p>No soy experto en amor, pero tú y yo juntos, eso sí que tiene sentido.</p>
+        <div id="hiddenArea" class="hidden-area">💖</div>
+        <p id="secretMessage" class="hidden-message">Eres como la brisa que acaricia sin prisa, como la luna que ilumina sin pedir nada a cambio. En un mundo de pasos apresurados, contigo todo se siente en su justo tiempo, como si el destino hubiera decidido pausarse solo para nosotros.</p>
+        <button onclick="goToSection('section3')" class="btn">Siguiente</button>
+        <button onclick="goToSection('section1')" class="btn">Regresar</button>
+        <div class="hidden-code">2</div>
     </div>
 
-    <div id="messagesSection" class="section" style="display:none;">
-        <h2>Mensajes Secretos</h2>
-        <div id="heartsContainer">
-            <div class="hidden-heart" onclick="revealMessage(this)">💖</div>
-            <div class="hidden-heart" onclick="revealMessage(this)">💖</div>
-            <div class="hidden-heart" onclick="revealMessage(this)">💖</div>
-        </div>
-        <button onclick="goToSection('unlockSection')" class="btn">Desbloquear Sorpresa</button>
+    <div id="section3" class="section" style="display:none;">
+        <h2>Un mensaje desde el corazón</h2>
+        <p>Espero que todo esto haya sido agradable para ti y que te lo hayas pasado bien.</p>
+        <button onclick="showUnlockCode()" class="btn">¿Listo para la sorpresa final?</button>
+        <button onclick="goToSection('section2')" class="btn">Regresar</button>
+        <div class="hidden-code">0</div>
     </div>
 
     <div id="unlockSection" class="section" style="display:none;">
@@ -54,22 +69,35 @@
         <input type="text" id="unlockCodeInput" placeholder="Código de Desbloqueo">
         <button onclick="checkUnlockCode()" class="btn">Desbloquear</button>
         <p id="unlockErrorMessage" style="color:red; display:none;">Código incorrecto. Intenta nuevamente.</p>
-        <button onclick="goToSection('messagesSection')" class="btn">Regresar</button>
+        <button onclick="goToSection('section3')" class="btn">Regresar</button>
     </div>
 
-    <div id="finalSection" class="section" style="display:none;">
+    <div id="finalSurprise" class="section" style="display:none;">
         <h2>Mi confesión más sincera</h2>
-        <p>Desde que te conocí, supe que eras alguien especial. Quiero que sepas que eres la persona más importante para mí y que cada momento contigo es un tesoro. Te amo más de lo que las palabras pueden expresar.</p>
-        <button onclick="goToSection('thankYouSection')" class="btn">Finalizar</button>
+        <p>Desde que te conocí, supe que eras alguien especial. Quiero que sepas que eres la persona más importante para mí y que cada momento contigo es un tesoro. Te amo más de lo que las palabras pueden expresar. ¡Feliz San Valentín!</p>
+        <button onclick="goToSection('thankYou')" class="btn">Finalizar</button>
+        <button onclick="goToSection('section3')" class="btn">Regresar</button>
     </div>
 
-    <div id="thankYouSection" class="section" style="display:none;">
+    <div id="thankYou" class="section" style="display:none;">
         <p>Gracias por ser increíble. ¡Te deseo un hermoso San Valentín! 💖</p>
-        <button onclick="goToSection('finalSection')" class="btn">Regresar</button>
+        <div id="finalHiddenArea" class="hidden-area">💖</div>
+        <p id="finalSecretMessage" class="hidden-message">Mi amor por ti es infinito y cada día crece más. Eres mi todo. 💘</p>
+        <button onclick="goToSection('finalSurprise')" class="btn">Regresar</button>
     </div>
 
     <div class="hearts"></div>
 
-    <script src="scripts.js"></script>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modalMessage">¿Estás segura de que no quieres ver el mensaje?</p>
+            <button id="modalYesBtn" class="btn">Sí</button>
+            <button id="modalNoBtn" class="btn">No</button>
+            <p id="errorMessage" style="display:none; color:red;"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
