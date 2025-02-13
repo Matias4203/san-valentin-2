@@ -57,19 +57,4 @@ button:active {
 }
 
 @keyframes vibrate {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(2px); }
-    50% { transform: translateX(0); }
-    75% { transform: translateX(-2px); }
-    100% { transform: translateX(0); }
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:
+    0%
