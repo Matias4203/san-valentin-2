@@ -55,6 +55,9 @@ function goToSection(sectionId) {
         sections[i].style.display = 'none';
     }
     document.getElementById(sectionId).style.display = 'block';
+    if (sectionId === 'errorSection') {
+        startCountdown();
+    }
 }
 
 function closeModal() {
@@ -148,7 +151,6 @@ function showRandomJoke() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    startCountdown();
     showRandomJoke();
     setupCamera();
 });
