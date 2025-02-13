@@ -75,18 +75,16 @@
         <p>Gracias por ser increíble. ¡Te deseo un hermoso San Valentín! 💖</p>
         <div class="hidden-heart" onclick="revealSecretMessage()">💖</div>
         <p id="finalSecretMessage" class="hidden-message">Mi amor por ti es infinito y cada día crece más. Eres mi todo. 💘</p>
-        <button onclick="goToSection('finalSurprise')" class="btn">Regresar</button>
+        <button onclick="goToSection('restrictedSection')" class="btn">Regresar</button>
     </div>
 
-    <div id="arSection" class="section" style="display:none;">
-        <h1>Modo de Realidad Aumentada</h1>
-        <video id="video" width="720" height="560" autoplay muted></video>
-        <canvas id="overlay" width="720" height="560"></canvas>
-        <div id="arMessage" class="ar-message"></div>
-        <button onclick="goToSection('intro')" class="btn">Regresar</button>
+    <div id="restrictedSection" class="section" style="display:none;">
+        <h2>PROHIBIDO EL PASO, SOLAMENTE PERSONAL AUTORIZADO PASA</h2>
+        <button onclick="startReflexTest()" class="btn">Prueba de Reflexión</button>
+        <button onclick="startMotionSensorTest()" class="btn">Sensor de Movimiento</button>
+        <p id="reflexMessage" style="display:none; color:red;"></p>
+        <p id="motionMessage" style="display:none; color:green;"></p>
     </div>
-
-    <div class="hearts"></div>
 
     <div id="modal" class="modal">
         <div class="modal-content">
