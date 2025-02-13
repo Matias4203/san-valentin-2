@@ -24,7 +24,6 @@ const jokes = [
 let seenJokes = new Set();
 let revealedCode = "";
 let reflexAttempts = 0;
-let motionUnlocked = false;
 
 document.getElementById('showMessagesBtn').addEventListener('click', function() {
     goToSection('section2');
