@@ -10,6 +10,7 @@ body, html {
     background-attachment: fixed;
 }
 
+/* Animación del fondo */
 @keyframes gradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -26,15 +27,25 @@ body {
     margin: 20px;
 }
 
+/* Animación de aparición */
 .section {
-    animation: fadeIn 2s;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+/* Estilo de los botones */
 button {
     margin: 10px;
     padding: 10px 20px;
@@ -52,18 +63,18 @@ button:hover {
     transform: scale(1.1);
 }
 
+/* Efecto de rebote al hacer clic en un botón */
 button:active {
-    animation: vibrate 0.2s linear infinite;
+    animation: bounce 0.3s ease-in-out;
 }
 
-@keyframes vibrate {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(2px); }
-    50% { transform: translateX(0); }
-    75% { transform: translateX(-2px); }
-    100% { transform: translateX(0); }
+@keyframes bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
+/* Icono de cerrar */
 .close {
     color: #aaa;
     float: right;
@@ -78,6 +89,7 @@ button:active {
     cursor: pointer;
 }
 
+/* Animación de corazones */
 .hearts {
     position: fixed;
     top: 0;
@@ -91,10 +103,11 @@ button:active {
 }
 
 @keyframes hearts {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 100%; }
+    from { transform: translateY(0); }
+    to { transform: translateY(100vh); }
 }
 
+/* Mensajes ocultos que aparecen con animación */
 .hidden-message {
     display: none;
     animation: revealText 3s forwards;
@@ -106,19 +119,21 @@ button:active {
     to { opacity: 1; }
 }
 
+/* Texto oculto que se revela con hover */
 .hidden-area {
     cursor: pointer;
     display: inline-block;
     margin-top: 20px;
     font-size: 24px;
     color: transparent;
+    transition: color 0.5s ease-in-out;
 }
 
-.hidden-area:hover,
-.hidden-area:focus {
-    color: initial;
+.hidden-area:hover {
+    color: #ee0979; /* Color visible al pasar el mouse */
 }
 
+/* Estilos para el modal */
 .modal {
     display: none;
     position: fixed;
@@ -128,7 +143,6 @@ button:active {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
     justify-content: center;
     align-items: center;
@@ -144,6 +158,7 @@ button:active {
     text-align: center;
 }
 
+/* Efecto al pasar el mouse por el mensaje de bienvenida */
 #welcomeMessage:hover {
     color: #ff6a88;
     transition: color 0.5s;
@@ -154,6 +169,7 @@ button:active {
     transition: color 0.2s;
 }
 
+/* Corazón oculto con animación */
 .hidden-heart {
     cursor: pointer;
     display: inline-block;
@@ -180,4 +196,11 @@ button:active {
 /* Estilos para la sección de error */
 #errorSection {
     color: red;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
