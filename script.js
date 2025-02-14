@@ -189,7 +189,7 @@ function showRandomJoke() {
         document.getElementById('nextSectionBtn').style.display = 'block';
     }
 
-    // Iniciar el contador de 10 segundos para pasar a la siguiente sección
+    // Iniciar el temporizador de 10 segundos para pasar a la siguiente sección
     startCountdownTimer();
 }
 
