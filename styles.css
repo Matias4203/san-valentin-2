@@ -28,6 +28,7 @@ body {
 
 .section {
     animation: fadeIn 2s;
+    color: black; /* Cambiar el color del texto a negro */
 }
 
 @keyframes fadeIn {
@@ -45,6 +46,9 @@ button {
     border: none;
     border-radius: 25px;
     transition: transform 0.2s, background 0.2s;
+    display: block; /* Centrar el botón */
+    margin-left: auto; /* Centrar el botón */
+    margin-right: auto; /* Centrar el botón */
 }
 
 button:hover {
@@ -77,18 +81,9 @@ button:active {
 .hidden-message {
     display: none;
     font-size: 24px;
-    color: #ff6a88;
+    color: black; /* Cambiar el color del mensaje a negro */
     margin-top: 20px;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
+.gift {
+    cursor: pointer
