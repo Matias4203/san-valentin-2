@@ -95,7 +95,7 @@ function startCountdown() {
         if (countdown === 0) {
             clearInterval(interval);
             document.getElementById('errorSection').innerHTML = `
-                <h1>Tranquilo, no te vas a librar de mí tan fácil. Ya me tienes aquí</h1>
+                <h1>Tranquilo, no te vas a librar de mí tan fácil. Ya me tienes aquí 😏</h1>
                 <button class="btn" onclick="goToSection('intro')">Continuar</button>
             `;
         }
@@ -252,7 +252,4 @@ const lyrics = [
 let currentLineIndex = 0;
 
 function displayNextLine() {
-    if (currentLineIndex < lyrics.length) {
-        const lineElement = document.getElementById(`line${currentLineIndex + 1}`);
-        lineElement.textContent = lyrics[currentLineIndex];
-       
+    if (currentLineIndex
