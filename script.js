@@ -193,18 +193,8 @@ function enlargeGift() {
     gift.style.transition = 'transform 2s ease';
     gift.style.transform = 'scale(3)';
     setTimeout(() => {
-        showFinalMessageModal();
-    }, 2000);
-}
-
-function showFinalMessageModal() {
-    const modal = document.getElementById('finalMessageModal');
-    modal.style.display = 'flex';
-}
-
-function closeFinalMessageModal() {
-    const modal = document.getElementById('finalMessageModal');
-    modal.style.display = 'none';
+        goToSection('finalMessageSection');
+    }, 5000);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
