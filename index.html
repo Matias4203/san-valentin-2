@@ -6,12 +6,16 @@
     <title>San Valentín</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
-    <script defer src="script.js"></script>
+    <script defer src="scripts.js"></script>
 </head>
 <body>
-    <div id="visitCounter" class="counter">Visitas: 0</div>
 
-    <div id="errorSection" class="section">
+    <div id="loadingSection" class="section">
+        <h1>Cargando...</h1>
+        <div class="loader"></div>
+    </div>
+
+    <div id="errorSection" class="section" style="display:none;">
         <h1>Error 404: Página no encontrada...</h1>
         <button class="btn" onclick="goToSection('intro')">Continuar</button>
     </div>
@@ -25,8 +29,7 @@
         <h1>Risas y Cariño</h1>
         <p id="jokeText"></p>
         <button id="anotherJokeBtn" onclick="showRandomJoke()" class="btn">Otra broma</button>
-        <button id="nextSectionBtn" class="btn" style="display:none;">Ya, quiero seguir</button>
-        <p id="countdownTimer" style="display:none;">Pasando en 10 segundos...</p>
+        <button id="nextSectionBtn" onclick="goToSection('section1')" class="btn" style="display:none;">Ya, quiero seguir</button>
     </div>
 
     <div id="section1" class="section" style="display:none;">
@@ -42,7 +45,7 @@
         <h2>Eres mi persona especial</h2>
         <p>No soy experto en amor, pero tú y yo juntos, eso sí que tiene sentido.</p>
         <div class="hidden-heart" onclick="revealSecretMessage()">💖</div>
-        <p id="secretMessage" class="hidden-message">Eres como la brisa que acaricia sin prisa, como la luna que ilumina sin pedir nada a cambio. En un mundo de pasos apresurados, contigo todo se sien[…]</p>
+        <p id="secretMessage" class="hidden-message">Eres como la brisa que acaricia sin prisa, como la luna que ilumina sin pedir nada a cambio. En un mundo de pasos apresurados, contigo todo se siente diferente.</p>
         <button onclick="goToSection('section3')" class="btn">Siguiente</button>
         <button onclick="goToSection('section1')" class="btn">Regresar</button>
         <div class="hidden-heart" onclick="revealCode('2')">💖</div>
@@ -80,7 +83,7 @@
     </div>
 
     <div id="restrictedSection" class="section" style="display:none;">
-        <h2>PROHIBIDO EL PASO, SOLAMENTE PERSONAL AUTORIZADO PASA</h2>
+        <h2>PROHIBIDO EL PASO, SOLAMENTE PERSONAL AUTORIZADO</h2>
         <button onclick="startReflexTest()" class="btn">Prueba de Reflexión</button>
         <button onclick="startMotionSensorTest()" class="btn">Sensor de Movimiento</button>
         <p id="reflexMessage" style="display:none; color:red;"></p>
