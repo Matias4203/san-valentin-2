@@ -188,28 +188,14 @@ function showRandomJoke() {
         document.getElementById('anotherJokeBtn').style.display = 'none';
         document.getElementById('nextSectionBtn').style.display = 'block';
     }
-
-    // Iniciar el temporizador de 10 segundos para pasar a la siguiente sección
-    startCountdownTimer();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Mostrar "Cargando..." por 3 segundos y luego pasar a la introducción
+    setTimeout(() => {
+        document.getElementById('loadingSection').style.display = 'none';
+        document.getElementById('intro').style.display = 'block';
+    }, 3000);
+
     showRandomJoke();
 });
-
-function startCountdownTimer() {
-    let countdown = 10;
-    const countdownElement = document.getElementById('countdownTimer');
-    countdownElement.style.display = 'block';
-    countdownElement.textContent = `Pasando en ${countdown} segundos...`;
-
-    const countdownInterval = setInterval(() => {
-        countdown--;
-        countdownElement.textContent = `Pasando en ${countdown} segundos...`;
-
-        if (countdown <= 0) {
-            clearInterval(countdownInterval);
-            goToSection('section1');
-        }
-    }, 1000);
-}
