@@ -195,15 +195,7 @@ function showRandomJoke() {
 
 document.addEventListener('DOMContentLoaded', function() {
     showRandomJoke();
-    updateVisitCounter();
 });
-
-function updateVisitCounter() {
-    let visits = localStorage.getItem('visitCounter') || 0;
-    visits++;
-    localStorage.setItem('visitCounter', visits);
-    document.getElementById('visitCounter').textContent = `Visitas: ${visits}`;
-}
 
 function startCountdownTimer() {
     let countdown = 10;
