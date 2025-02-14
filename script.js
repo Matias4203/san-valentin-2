@@ -151,4 +151,16 @@ function handleOrientation(event) {
     const motionMessage = document.getElementById('motionMessage');
     const gamma = event.gamma; // Incline left to right
     if (gamma > 30 || gamma < -30) { // Adjust the threshold as needed
-        motionMessage.textContent = 'Bien
+        motionMessage.textContent = 'Bien, tienes la clave del movimiento. Bienvenido.';
+        motionMessage.style.display = 'block';
+        window.removeEventListener('deviceorientation', handleOrientation);
+        goToSection('restrictedSectionUnlocked');
+    }
+}
+
+function showUnlockCode() {
+    goToSection('unlockSection');
+}
+
+function checkUnlockCode() {
+    const inputCode = document.getElementById('
