@@ -86,4 +86,6 @@ button:active {
 }
 
 .gift {
-    cursor: pointer
+    cursor: pointer;
+    font-size: 32px;
+}
