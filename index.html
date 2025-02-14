@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>San Valentín</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
     <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api"></script>
 </head>
@@ -89,6 +89,25 @@
     <div id="restrictedSectionUnlocked" class="section" style="display:none;">
         <h2>¡Bienvenido a la Zona Especial!</h2>
         <p>Has demostrado tus habilidades. Disfruta de este espacio exclusivo.</p>
+        <audio controls>
+            <source src="ruta_de_tu_cancion.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+        <div id="songLyrics" class="lyrics">
+            <p id="line1"></p>
+            <p id="line2"></p>
+            <p id="line3"></p>
+            <p id="line4"></p>
+            <p id="line5"></p>
+            <p id="line6"></p>
+            <p id="line7"></p>
+            <p id="line8"></p>
+            <p id="line9"></p>
+            <p id="line10"></p>
+            <p id="line11"></p>
+            <p id="line12"></p>
+            <p id="line13"></p>
+        </div>
         <button onclick="goToSection('thankYou')" class="btn">Regresar</button>
     </div>
 
