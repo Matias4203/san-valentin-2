@@ -197,5 +197,17 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('intro').style.display = 'block';
     }, 3000);
 
+    // Temporizador de redirección en la sección de error
+    let countdown = 10;
+    const countdownElement = document.getElementById('countdown');
+    const countdownInterval = setInterval(() => {
+        countdown--;
+        countdownElement.textContent = countdown;
+        if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            goToSection('intro');
+        }
+    }, 1000);
+
     showRandomJoke();
 });
