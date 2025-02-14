@@ -24,13 +24,10 @@ const jokes = [
 let seenJokes = new Set();
 let revealedCode = "";
 let reflexAttempts = 0;
-let countdownInterval;
-let countdown = 10;
 
 document.getElementById('showMessagesBtn').addEventListener('click', function() {
     goToSection('section2');
     showHearts();
-    resetCountdown();
 });
 
 document.getElementById('showExtraMessagesBtn').addEventListener('click', function() {
@@ -52,7 +49,6 @@ document.getElementById('modalNoBtn').addEventListener('click', function() {
 });
 
 function goToSection(sectionId) {
-    resetCountdown();
     const sections = document.getElementsByClassName('section');
     for (let i = 0; i < sections.length; i++) {
         sections[i].style.display = 'none';
@@ -88,7 +84,6 @@ function displayErrorMessage() {
 function startReflexTest() {
     reflexAttempts = 0;
     showReflexButton();
-    resetCountdown();
 }
 
 function showReflexButton() {
@@ -129,7 +124,6 @@ function startMotionSensorTest() {
     } else {
         alert("Tu dispositivo no soporta el sensor de movimiento.");
     }
-    resetCountdown();
 }
 
 function handleOrientation(event) {
@@ -194,25 +188,6 @@ function showRandomJoke() {
     }
 }
 
-function startCountdown() {
-    countdown = 10;
-    clearInterval(countdownInterval);
-    countdownInterval = setInterval(() => {
-        countdown--;
-        if (countdown <= 0) {
-            clearInterval(countdownInterval);
-            goToSection('intro');
-        }
-    }, 1000);
-}
-
-function resetCountdown() {
-    countdown = 10;
-    clearInterval(countdownInterval);
-    startCountdown();
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     showRandomJoke();
-    startCountdown();
 });
