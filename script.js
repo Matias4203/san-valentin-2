@@ -234,3 +234,25 @@ async function startFaceDetection() {
     const video = document.getElementById('video');
     const canvas = faceapi.createCanvasFromMedia(video);
 }
+
+// Function to display lyrics line by line
+const lyrics = [
+    "Porque cuando estoy contigo",
+    "Llega el verano y se termina el frío",
+    "Eres la calma en la que más confío",
+    "Me voy a enloquecer si no te vuelvo a ver",
+    "Porfa, no te vayas cuando salga el Sol",
+    "Cuando algún error me haga pasar por imprudente",
+    "Los nervio' de bailar contigo, juegan conmigo",
+    "Porfa, no te vayas cuando intente hablar",
+    "Y al tartamudear, na-na-na-nada te cuente (no)",
+    "Los nervios de bailar contigo juegan conmigo"
+];
+
+let currentLineIndex = 0;
+
+function displayNextLine() {
+    if (currentLineIndex < lyrics.length) {
+        const lineElement = document.getElementById(`line${currentLineIndex + 1}`);
+        lineElement.textContent = lyrics[currentLineIndex];
+       
