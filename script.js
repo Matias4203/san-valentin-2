@@ -192,7 +192,4 @@ function showRandomJoke() {
 
 document.addEventListener('DOMContentLoaded', function() {
     showRandomJoke();
-    setTimeout(() => {
-        goToSection('intro');
-    }, 10000); // Redirigir a la sección "intro" después de 10 segundos
 });
