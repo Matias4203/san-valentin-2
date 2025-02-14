@@ -188,6 +188,16 @@ function showRandomJoke() {
     }
 }
 
+function enlargeGift() {
+    const gift = document.getElementById('gift');
+    gift.style.transition = 'transform 2s ease';
+    gift.style.transform = 'scale(3)';
+    setTimeout(() => {
+        const finalMessage = document.getElementById('finalMessage');
+        finalMessage.style.display = 'block';
+    }, 2000);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     showRandomJoke();
 });
