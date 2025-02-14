@@ -68,4 +68,21 @@ button:active {
     position: absolute;
     top: 10px;
     left: 10px;
-    font
+    font-size: 18px;
+}
+
+.hidden-heart {
+    margin: 20px;
+    cursor: pointer;
+    font-size: 32px;
+}
+
+.hidden-heart:hover {
+    transform: scale(1.2);
+}
+
+.hidden-message {
+    display: none;
+    font-size: 24px;
+    color: #ff6a88;
+    margin-top:
