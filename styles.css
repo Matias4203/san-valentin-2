@@ -117,17 +117,3 @@ button:active {
     text-decoration: none;
     cursor: pointer;
 }
-
-/* Styles for lyrics */
-.lyrics {
-    margin-top: 20px;
-}
-
-.lyric-line {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.lyric-line.show {
-    opacity: 1;
-}
