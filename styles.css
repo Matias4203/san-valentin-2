@@ -80,4 +80,5 @@ button:active {
 
 .hidden-message {
     display: none;
-    font-size: 
+    font-size: 24px;
+    color: black; /* Cambiar el color del
