@@ -188,6 +188,9 @@ function showRandomJoke() {
         document.getElementById('anotherJokeBtn').style.display = 'none';
         document.getElementById('nextSectionBtn').style.display = 'block';
     }
+
+    // Iniciar el contador de 10 segundos para pasar a la siguiente sección
+    startCountdownTimer();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -200,4 +203,21 @@ function updateVisitCounter() {
     visits++;
     localStorage.setItem('visitCounter', visits);
     document.getElementById('visitCounter').textContent = `Visitas: ${visits}`;
+}
+
+function startCountdownTimer() {
+    let countdown = 10;
+    const countdownElement = document.getElementById('countdownTimer');
+    countdownElement.style.display = 'block';
+    countdownElement.textContent = `Pasando en ${countdown} segundos...`;
+
+    const countdownInterval = setInterval(() => {
+        countdown--;
+        countdownElement.textContent = `Pasando en ${countdown} segundos...`;
+
+        if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            goToSection('section1');
+        }
+    }, 1000);
 }
