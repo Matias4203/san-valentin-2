@@ -252,4 +252,5 @@ const lyrics = [
 let currentLineIndex = 0;
 
 function displayNextLine() {
-    if (currentLineIndex
+    if (currentLineIndex < lyrics.length) {
+        const lineElement = document.getElementById(`line${currentLineIndex + 1}`);
