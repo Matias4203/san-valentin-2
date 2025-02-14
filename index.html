@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
     <script defer src="script.js"></script>
 </head>
+
 <body>
 
     <div id="errorSection" class="section" style="display:none;">
@@ -65,6 +67,10 @@
     <div id="finalSurprise" class="section" style="display:none;">
         <h2>Un pequeño gesto para ti</h2>
         <p>Al final, la vida no se trata solo de grandes gestos, sino de esos pequeños momentos que nos hacen sentir especiales. Así que, este es mi pequeño gesto para ti, porque, aunque ya lo sabes, nunca está de más recordarte lo increíble que eres. 💫🎁</p>
+        <div class="gift" id="gift" onclick="enlargeGift()">
+            🎁
+        </div>
+        <p id="finalMessage" class="hidden-message">¡Felicidades! Has llegado al final de este pequeño viaje y desbloqueado algo más que solo bromas (aunque no te preocupes, esas no van a faltar 😜). Este detalle es solo una muestra de todo lo que significas para mí. Gracias por estar siempre ahí, incluso cuando me pongo creativo con mis chistes. Lo mejor está por venir… o no, quién sabe. Lo importante es que espero haberte sacado una sonrisa, ¡y si no lo hice, al menos lo intenté con mucho cariño!</p>
     </div>
 
     <div id="thankYou" class="section" style="display:none;">
@@ -75,7 +81,7 @@
     </div>
 
     <div id="restrictedSection" class="section" style="display:none;">
-        <h2>PROHIBIDO EL PASO, SOLAMENTE PERSONAL AUTORIZADO</h4>
+        <h2>PROHIBIDO EL PASO, SOLAMENTE PERSONAL AUTORIZADO</h2>
         <button onclick="startReflexTest()" class="btn">Prueba de Reflexión</button>
         <button onclick="startMotionSensorTest()" class="btn">Sensor de Movimiento</button>
         <p id="reflexMessage" style="display:none; color:red;"></p>
@@ -100,4 +106,5 @@
     </div>
 
 </body>
+
 </html>
