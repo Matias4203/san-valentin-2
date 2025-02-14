@@ -191,12 +191,6 @@ function showRandomJoke() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Mostrar "Cargando..." por 3 segundos y luego pasar a la introducción
-    setTimeout(() => {
-        document.getElementById('loadingSection').style.display = 'none';
-        document.getElementById('intro').style.display = 'block';
-    }, 3000);
-
     // Temporizador de redirección en la sección de error
     let countdown = 10;
     const countdownElement = document.getElementById('countdown');
