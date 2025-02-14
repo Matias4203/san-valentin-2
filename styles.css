@@ -66,3 +66,18 @@ button:active {
     50% { transform: translateX(2px); }
     75% { transform: translateX(-2px); }
     100% { transform: translateX(0); }
+}
+
+.hidden-heart {
+    margin: 20px;
+    cursor: pointer;
+    font-size: 32px;
+}
+
+.hidden-heart:hover {
+    transform: scale(1.2);
+}
+
+.hidden-message {
+    display: none;
+    font-size: 
