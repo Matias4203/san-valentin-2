@@ -163,4 +163,32 @@ function showUnlockCode() {
 }
 
 function checkUnlockCode() {
-    const inputCode = document.getElementById('
+    const inputCode = document.getElementById('unlockCodeInput').value;
+    const unlockErrorMessage = document.getElementById('unlockErrorMessage');
+    if (inputCode === revealedCode) {
+        goToSection('finalSurprise');
+    } else {
+        unlockErrorMessage.style.display = 'block';
+    }
+}
+
+function revealSecretMessage() {
+    const randomIndex = Math.floor(Math.random() * secretMessages.length);
+    const secretMessage = secretMessages[randomIndex];
+    const secretMessageElement = document.getElementById('secretMessage');
+    secretMessageElement.textContent = secretMessage;
+    secretMessageElement.style.display = 'block';
+}
+
+function revealCode(number) {
+    revealedCode += number;
+    alert(`Parte del código revelado: ${number}`);
+    if (revealedCode.length === 3) {
+        alert(`Código completo revelado: ${revealedCode}`);
+    }
+}
+
+function showRandomJoke() {
+    if (seenJokes.size === jokes.length) {
+        document.getElementById('anotherJokeBtn').style.display = 'none';
+        document.getElementById('nextSectionBtn').style.display
