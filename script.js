@@ -148,6 +148,7 @@ function checkUnlockCode() {
     const unlockErrorMessage = document.getElementById('unlockErrorMessage');
     if (inputCode === revealedCode) {
         goToSection('finalSurprise');
+        startRedirectCountdown();
     } else {
         unlockErrorMessage.style.display = 'block';
     }
@@ -205,3 +206,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     showRandomJoke();
 });
+
+function startRedirectCountdown() {
+    // Temporizador de redirección en la sección "finalSurprise"
+    let redirectCountdown = 10;
+    const redirectCountdownElement = document.getElementById('redirectCountdown');
+    const redirectInterval = setInterval(() => {
+        redirectCountdown--;
+        redirectCountdownElement.textContent = redirectCountdown;
+        if (redirectCountdown <= 0) {
+            clearInterval(redirectInterval);
+            goToSection('intro');
+        }
+    }, 1000);
+}
