@@ -56,9 +56,6 @@ function goToSection(sectionId) {
         sections[i].style.display = 'none';
     }
     document.getElementById(sectionId).style.display = 'block';
-    if (sectionId === 'errorSection') {
-        startCountdown();
-    }
 }
 
 function closeModal() {
@@ -84,22 +81,6 @@ function displayErrorMessage() {
     const errorMessage = document.getElementById('errorMessage');
     errorMessage.style.display = 'block';
     errorMessage.innerText = 'ERROR AL MOSTRAR EL MENSAJE';
-}
-
-function startCountdown() {
-    let countdown = 10;
-    const countdownElement = document.getElementById('countdown');
-    const interval = setInterval(() => {
-        countdown--;
-        countdownElement.textContent = countdown;
-        if (countdown === 0) {
-            clearInterval(interval);
-            document.getElementById('errorSection').innerHTML = `
-                <h1>Tranquilo, no te vas a librar de mí tan fácil. Ya me tienes aquí 😏</h1>
-                <button class="btn" onclick="goToSection('intro')">Continuar</button>
-            `;
-        }
-    }, 1000);
 }
 
 function startReflexTest() {
@@ -191,4 +172,24 @@ function revealCode(number) {
 function showRandomJoke() {
     if (seenJokes.size === jokes.length) {
         document.getElementById('anotherJokeBtn').style.display = 'none';
-        document.getElementById('nextSectionBtn').style.display
+        document.getElementById('nextSectionBtn').style.display = 'block';
+        return;
+    }
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * jokes.length);
+    } while (seenJokes.has(randomIndex));
+    seenJokes.add(randomIndex);
+
+    const jokeText = document.getElementById('jokeText');
+    jokeText.textContent = jokes[randomIndex];
+
+    if (seenJokes.size === jokes.length) {
+        document.getElementById('anotherJokeBtn').style.display = 'none';
+        document.getElementById('nextSectionBtn').style.display = 'block';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    showRandomJoke();
+});
