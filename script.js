@@ -148,7 +148,6 @@ function checkUnlockCode() {
     const unlockErrorMessage = document.getElementById('unlockErrorMessage');
     if (inputCode === revealedCode) {
         goToSection('finalSurprise');
-        startRedirectCountdown();
     } else {
         unlockErrorMessage.style.display = 'block';
     }
@@ -192,31 +191,8 @@ function showRandomJoke() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Temporizador de redirección en la sección de error
-    let countdown = 10;
-    const countdownElement = document.getElementById('countdown');
-    const countdownInterval = setInterval(() => {
-        countdown--;
-        countdownElement.textContent = countdown;
-        if (countdown <= 0) {
-            clearInterval(countdownInterval);
-            goToSection('intro');
-        }
-    }, 1000);
-
     showRandomJoke();
+    setTimeout(() => {
+        goToSection('intro');
+    }, 10000); // Redirigir a la sección "intro" después de 10 segundos
 });
-
-function startRedirectCountdown() {
-    // Temporizador de redirección en la sección "finalSurprise"
-    let redirectCountdown = 10;
-    const redirectCountdownElement = document.getElementById('redirectCountdown');
-    const redirectInterval = setInterval(() => {
-        redirectCountdown--;
-        redirectCountdownElement.textContent = redirectCountdown;
-        if (redirectCountdown <= 0) {
-            clearInterval(redirectInterval);
-            goToSection('intro');
-        }
-    }, 1000);
-}
